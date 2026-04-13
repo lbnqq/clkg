@@ -1,0 +1,625 @@
+/**
+ * 疯狂动物城微交互系统 - 微交互样式
+ * Zootopia Micro-interactions System - Micro-interaction Styles
+ *
+ * 提供精细的用户交互反馈效果
+ */
+
+/* ============================================
+   按钮微交互
+   ============================================ */
+
+.zt-btn {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* 按钮按下效果 */
+.zt-btn:active {
+  transform: scale(0.98) translateZ(0);
+}
+
+/* 按钮涟漪效果 */
+.zt-btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.zt-btn-ripple .zt-ripple-wave {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: zt-ripple-wave 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes zt-ripple-wave {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* 按钮光晕效果 */
+.zt-btn-glow {
+  position: relative;
+}
+
+.zt-btn-glow::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--zt-primary), var(--zt-secondary), var(--zt-accent));
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity var(--zt-transition-base);
+  z-index: -1;
+  filter: blur(8px);
+}
+
+.zt-btn-glow:hover::before {
+  opacity: 0.6;
+}
+
+/* ============================================
+   卡片微交互
+   ============================================ */
+
+.zt-card {
+  position: relative;
+  transform: translateZ(0);
+  transition: all var(--zt-transition-base) var(--zt-ease-smooth);
+}
+
+.zt-card:hover {
+  transform: translateY(-4px) translateZ(0);
+  box-shadow: var(--zt-shadow-lg);
+}
+
+.zt-card:active {
+  transform: translateY(-2px) translateZ(0);
+}
+
+/* 卡片光泽效果 */
+.zt-card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.zt-card-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: left 0.5s;
+  pointer-events: none;
+}
+
+.zt-card-shine:hover::before {
+  left: 150%;
+  transition: left 0.7s;
+}
+
+/* 卡片翻转效果 */
+.zt-card-flip {
+  perspective: 1000px;
+}
+
+.zt-card-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.zt-card-flip:hover .zt-card-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.zt-card-flip-front,
+.zt-card-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.zt-card-flip-back {
+  transform: rotateY(180deg);
+}
+
+/* ============================================
+   输入框微交互
+   ============================================ */
+
+.zt-input {
+  position: relative;
+  transition: all var(--zt-transition-base);
+}
+
+.zt-input:focus {
+  border-color: var(--zt-primary);
+  box-shadow: 0 0 0 3px var(--zt-primary-dim);
+  outline: none;
+}
+
+/* 浮动标签效果 */
+.zt-input-group {
+  position: relative;
+}
+
+.zt-input-floating-label {
+  position: absolute;
+  left: var(--zt-space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--zt-text-secondary);
+  pointer-events: none;
+  transition: all var(--zt-transition-base);
+  background: var(--zt-bg-primary);
+  padding: 0 var(--zt-space-xs);
+}
+
+.zt-input:focus ~ .zt-input-floating-label,
+.zt-input:not(:placeholder-shown) ~ .zt-input-floating-label {
+  top: 0;
+  font-size: var(--zt-text-xs);
+  color: var(--zt-primary);
+}
+
+/* 输入框加载状态 */
+.zt-input-loading {
+  background-image: linear-gradient(
+    90deg,
+    var(--zt-bg-tertiary) 0%,
+    var(--zt-bg-secondary) 50%,
+    var(--zt-bg-tertiary) 100%
+  );
+  background-size: 200px 100%;
+  animation: zt-input-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes zt-input-loading {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+/* ============================================
+   链接微交互
+   ============================================ */
+
+.zt-link {
+  position: relative;
+  display: inline-block;
+}
+
+/* 下划线动画 */
+.zt-link-underline {
+  text-decoration: none;
+}
+
+.zt-link-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: var(--zt-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--zt-transition-base) var(--zt-ease-smooth);
+}
+
+.zt-link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* 链接箭头动画 */
+.zt-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zt-space-xs);
+}
+
+.zt-link-arrow .zt-arrow {
+  transition: transform var(--zt-transition-base) var(--zt-ease-smooth);
+}
+
+.zt-link-arrow:hover .zt-arrow {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   图标微交互
+   ============================================ */
+
+.zt-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--zt-transition-base);
+}
+
+.zt-icon:hover {
+  transform: scale(1.1);
+}
+
+.zt-icon:active {
+  transform: scale(0.95);
+}
+
+/* 图标旋转 */
+.zt-icon-rotate:hover {
+  animation: zt-icon-spin 0.5s ease-in-out;
+}
+
+@keyframes zt-icon-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 图标抖动 */
+.zt-icon-shake:hover {
+  animation: zt-icon-shake 0.5s ease-in-out;
+}
+
+@keyframes zt-icon-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* ============================================
+   复选框/单选框微交互
+   ============================================ */
+
+.zt-checkbox,
+.zt-radio {
+  position: relative;
+  cursor: pointer;
+}
+
+.zt-checkbox-input,
+.zt-radio-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.zt-checkbox-custom,
+.zt-radio-custom {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--zt-border-medium);
+  border-radius: var(--zt-radius-sm);
+  background: var(--zt-bg-primary);
+  transition: all var(--zt-transition-base);
+}
+
+.zt-radio-custom {
+  border-radius: 50%;
+}
+
+.zt-checkbox-input:checked ~ .zt-checkbox-custom,
+.zt-radio-input:checked ~ .zt-radio-custom {
+  background: var(--zt-primary);
+  border-color: var(--zt-primary);
+}
+
+.zt-checkbox-input:checked ~ .zt-checkbox-custom::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.zt-radio-input:checked ~ .zt-radio-custom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* ============================================
+   开关微交互
+   ============================================ */
+
+.zt-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.zt-switch-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.zt-switch-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--zt-border-dark);
+  border-radius: 24px;
+  transition: all var(--zt-transition-base);
+  cursor: pointer;
+}
+
+.zt-switch-slider::before {
+  content: '';
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: all var(--zt-transition-base);
+  box-shadow: var(--zt-shadow-sm);
+}
+
+.zt-switch-input:checked ~ .zt-switch-slider {
+  background: var(--zt-primary);
+}
+
+.zt-switch-input:checked ~ .zt-switch-slider::before {
+  transform: translateX(24px);
+}
+
+/* ============================================
+   下拉菜单微交互
+   ============================================ */
+
+.zt-dropdown {
+  position: relative;
+}
+
+.zt-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  padding: var(--zt-space-sm) 0;
+  background: var(--zt-bg-elevated);
+  border-radius: var(--zt-radius-md);
+  box-shadow: var(--zt-shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all var(--zt-transition-base) var(--zt-ease-smooth);
+  z-index: var(--zt-z-dropdown);
+}
+
+.zt-dropdown:hover .zt-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(4px);
+}
+
+.zt-dropdown-item {
+  padding: var(--zt-space-sm) var(--zt-space-md);
+  transition: all var(--zt-transition-fast);
+}
+
+.zt-dropdown-item:hover {
+  background: var(--zt-bg-tertiary);
+  color: var(--zt-primary);
+}
+
+/* ============================================
+   工具提示微交互
+   ============================================ */
+
+.zt-tooltip {
+  position: relative;
+}
+
+.zt-tooltip-content {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  padding: var(--zt-space-sm) var(--zt-space-md);
+  background: var(--zt-text-primary);
+  color: var(--zt-text-inverse);
+  border-radius: var(--zt-radius-sm);
+  font-size: var(--zt-text-sm);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--zt-transition-base) var(--zt-ease-smooth);
+  z-index: var(--zt-z-tooltip);
+  pointer-events: none;
+}
+
+.zt-tooltip-content::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--zt-text-primary);
+}
+
+.zt-tooltip:hover .zt-tooltip-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+/* ============================================
+   加载器微交互
+   ============================================ */
+
+.zt-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--zt-border-light);
+  border-top-color: var(--zt-primary);
+  border-radius: 50%;
+  animation: zt-spinner 0.6s linear infinite;
+}
+
+@keyframes zt-spinner {
+  to { transform: rotate(360deg); }
+}
+
+/* 点状加载器 */
+.zt-dots-loader {
+  display: inline-flex;
+  gap: var(--zt-space-sm);
+}
+
+.zt-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--zt-primary);
+  border-radius: 50%;
+  animation: zt-dot-bounce 1.4s ease-in-out infinite both;
+}
+
+.zt-dot:nth-child(1) { animation-delay: -0.32s; }
+.zt-dot:nth-child(2) { animation-delay: -0.16s; }
+.zt-dot:nth-child(3) { animation-delay: 0s; }
+
+@keyframes zt-dot-bounce {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   焦点可见性（无障碍）
+   ============================================ */
+
+.zt-focus-visible:focus-visible {
+  outline: 2px solid var(--zt-primary);
+  outline-offset: 2px;
+}
+
+.zt-focus-visible:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ============================================
+   触摸反馈
+   ============================================ */
+
+@media (hover: none) and (pointer: coarse) {
+  .zt-btn:active {
+    transform: scale(0.96);
+  }
+
+  .zt-card:active {
+    transform: scale(0.98);
+  }
+
+  .zt-icon:active {
+    transform: scale(1.05);
+  }
+}
+
+/* ============================================
+   高对比度模式
+   ============================================ */
+
+@media (prefers-contrast: high) {
+  .zt-btn {
+    border: 2px solid currentColor;
+  }
+
+  .zt-input {
+    border-width: 2px;
+  }
+
+  .zt-card {
+    border: 1px solid var(--zt-border-dark);
+  }
+}
+
+/* ============================================
+   暗色模式优化
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  .zt-btn-glow::before {
+    background: linear-gradient(45deg, var(--zt-primary), var(--zt-secondary), var(--zt-accent));
+    filter: blur(12px);
+  }
+
+  .zt-card-shine::before {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+  }
+}
+
+/* ============================================
+   减少动画模式
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .zt-btn,
+  .zt-card,
+  .zt-input,
+  .zt-icon {
+    transition: none;
+  }
+
+  .zt-spinner,
+  .zt-dot {
+    animation-duration: 3s;
+  }
+
+  .zt-dropdown-menu {
+    transition: none;
+  }
+
+  .zt-link-underline::after {
+    transform: scaleX(1);
+  }
+}

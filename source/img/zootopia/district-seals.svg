@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+  <defs>
+    <style>
+      .seal-title { font-size: 14px; font-weight: bold; text-anchor: middle; fill: #333; }
+      .seal-subtitle { font-size: 10px; text-anchor: middle; fill: #666; }
+      .seal-motto { font-size: 8px; font-style: italic; text-anchor: middle; fill: #888; }
+    </style>
+  </defs>
+
+  <!-- Sahara Square Seal -->
+  <g transform="translate(100, 100)">
+    <circle cx="0" cy="0" r="80" fill="#FF9F43" stroke="#EE5A24" stroke-width="3"/>
+    <circle cx="0" cy="0" r="70" fill="#FFF5E6"/>
+    <text x="0" y="-30" class="seal-title">SAHARA SQUARE</text>
+    <text x="0" y="-10" class="seal-subtitle">撒哈拉广场</text>
+    <text x="0" y="10" font-size="30" text-anchor="middle">🏜️</text>
+    <text x="0" y="35" class="seal-motto">"Sunshine & Dreams"</text>
+  </g>
+
+  <!-- Tundratown Seal -->
+  <g transform="translate(300, 100)">
+    <circle cx="0" cy="0" r="80" fill="#0ABDE3" stroke="#48DBFB" stroke-width="3"/>
+    <circle cx="0" cy="0" r="70" fill="#E8F8FF"/>
+    <text x="0" y="-30" class="seal-title">TUNDRATOWN</text>
+    <text x="0" y="-10" class="seal-subtitle">冰川镇</text>
+    <text x="0" y="10" font-size="30" text-anchor="middle">❄️</text>
+    <text x="0" y="35" class="seal-motto">"Ice & Adventure"</text>
+  </g>
+
+  <!-- Rainforest District Seal -->
+  <g transform="translate(500, 100)">
+    <circle cx="0" cy="0" r="80" fill="#10AC84" stroke="#1DD1A1" stroke-width="3"/>
+    <circle cx="0" cy="0" r="70" fill="#E8FFF3"/>
+    <text x="0" y="-30" class="seal-title">RAINFOREST</text>
+    <text x="0" y="-10" class="seal-subtitle">雨林区</text>
+    <text x="0" y="10" font-size="30" text-anchor="middle">🌴</text>
+    <text x="0" y="35" class="seal-motto">"Nature & Life"</text>
+  </g>
+
+  <!-- Downtown Seal -->
+  <g transform="translate(700, 100)">
+    <circle cx="0" cy="0" r="80" fill="#5F27CD" stroke="#341F97" stroke-width="3"/>
+    <circle cx="0" cy="0" r="70" fill="#F3E5FF"/>
+    <text x="0" y="-30" class="seal-title">DOWNTOWN</text>
+    <text x="0" y="-10" class="seal-subtitle">市中心</text>
+    <text x="0" y="10" font-size="30" text-anchor="middle">🏙️</text>
+    <text x="0" y="35" class="seal-motto">"Lights & Dreams"</text>
+  </g>
+</svg>

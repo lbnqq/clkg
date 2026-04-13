@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9F43"/>
+      <stop offset="50%" style="stop-color:#EE5A24"/>
+      <stop offset="100%" style="stop-color:#0ABDE3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <circle cx="100" cy="100" r="95" fill="url(#avatarGrad)"/>
+
+  <!-- 装饰圆环 -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#FFF" stroke-width="2" opacity="0.5"/>
+
+  <!-- 角色图标 -->
+  <text x="60" y="115" font-size="50">🐰</text>
+  <text x="120" y="115" font-size="50">🦊</text>
+
+  <!-- 城市轮廓 -->
+  <path d="M 30 140
+           L 40 120
+           L 50 120
+           L 50 130
+           L 60 130
+           L 60 115
+           L 75 115
+           L 75 140
+           M 80 140
+           L 80 100
+           L 95 100
+           L 95 140
+           M 100 140
+           L 100 110
+           L 115 110
+           L 115 140
+           M 120 140
+           L 120 105
+           L 135 105
+           L 135 140
+           M 140 140
+           L 140 120
+           L 155 120
+           L 155 125
+           L 165 125
+           L 165 140"
+        fill="none" stroke="#FFF" stroke-width="2" opacity="0.6"/>
+
+  <!-- Z 文字 -->
+  <text x="100" y="180" text-anchor="middle" fill="#FFF"
+        font-size="20" font-weight="bold" font-family="Arial">ZOOTOPIA</text>
+</svg>

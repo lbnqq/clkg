@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .char-bg { filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)); }
+      .char-name { font-size: 16px; font-weight: bold; text-anchor: middle; fill: #333; }
+    </style>
+  </defs>
+
+  <!-- Judy Hopps -->
+  <g transform="translate(50, 50)">
+    <circle cx="0" cy="0" r="40" fill="#9C85C6" class="char-bg"/>
+    <text x="0" y="15" font-size="50" text-anchor="middle">🐰</text>
+    <text x="0" y="60" class="char-name">Judy Hopps</text>
+  </g>
+
+  <!-- Nick Wilde -->
+  <g transform="translate(150, 50)">
+    <circle cx="0" cy="0" r="40" fill="#FF6B35" class="char-bg"/>
+    <text x="0" y="15" font-size="50" text-anchor="middle">🦊</text>
+    <text x="0" y="60" class="char-name">Nick Wilde</text>
+  </g>
+
+  <!-- Chief Bogo -->
+  <g transform="translate(50, 150)">
+    <circle cx="0" cy="0" r="40" fill="#5D4E37" class="char-bg"/>
+    <text x="0" y="15" font-size="50" text-anchor="middle">🦬</text>
+    <text x="0" y="60" class="char-name">Chief Bogo</text>
+  </g>
+
+  <!-- Flash -->
+  <g transform="translate(150, 150)">
+    <circle cx="0" cy="0" r="40" fill="#8B7355" class="char-bg"/>
+    <text x="0" y="15" font-size="50" text-anchor="middle">🦥</text>
+    <text x="0" y="60" class="char-name">Flash</text>
+  </g>
+</svg>

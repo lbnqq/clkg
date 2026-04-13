@@ -1,0 +1,209 @@
+/**
+ * 疯狂动物城阅读进度条样式
+ * Zootopia Reading Progress Styles
+ */
+
+/* ==================== 阅读进度条 ==================== */
+
+.zt-reading-progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.zt-reading-progress[data-position="top"] {
+  top: 0;
+}
+
+.zt-reading-progress[data-position="bottom"] {
+  bottom: 0;
+}
+
+/* 进度条容器 */
+.zt-progress-bar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* 进度填充 */
+.zt-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #FF9F43, #10AC84);
+  transition: width 0.1s ease-out, background 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 159, 67, 0.5);
+}
+
+.zt-progress-fill.complete {
+  background: #10AC84;
+}
+
+/* 进度百分比 */
+.zt-progress-percentage {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #333;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2px 8px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== 章节指示器 ==================== */
+
+.zt-chapter-indicators {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.zt-chapter-indicators:hover {
+  opacity: 1;
+}
+
+/* 章节项 */
+.zt-chapter-item {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.zt-chapter-item:hover {
+  transform: scale(1.2);
+}
+
+/* 章节点 */
+.zt-chapter-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 159, 67, 0.3);
+  border: 2px solid #FF9F43;
+  transition: all 0.3s ease;
+}
+
+.zt-chapter-item:hover .zt-chapter-dot {
+  background: rgba(255, 159, 67, 0.6);
+  box-shadow: 0 0 8px rgba(255, 159, 67, 0.5);
+}
+
+/* 当前章节 */
+.zt-chapter-item.zt-chapter-active .zt-chapter-dot {
+  background: #FF9F43;
+  box-shadow: 0 0 12px rgba(255, 159, 67, 0.8);
+  animation: pulse-dot 2s infinite;
+}
+
+/* 已读章节 */
+.zt-chapter-item.zt-chapter-read .zt-chapter-dot {
+  background: #10AC84;
+  border-color: #10AC84;
+}
+
+/* 章节提示 */
+.zt-chapter-tooltip {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.zt-chapter-item:hover .zt-chapter-tooltip {
+  opacity: 1;
+  visibility: visible;
+  right: 25px;
+}
+
+/* ==================== 动画 ==================== */
+
+@keyframes pulse-dot {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(255, 159, 67, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 159, 67, 1);
+  }
+}
+
+/* ==================== 响应式 ==================== */
+
+@media (max-width: 768px) {
+  .zt-chapter-indicators {
+    right: 10px;
+    gap: 6px;
+  }
+
+  .zt-chapter-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .zt-chapter-tooltip {
+    display: none; /* 移动端隐藏提示 */
+  }
+}
+
+/* ==================== 深色模式 ==================== */
+
+@media (prefers-color-scheme: dark) {
+  .zt-progress-percentage {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+  }
+}
+
+/* ==================== 高对比度模式 ==================== */
+
+.zt-high-contrast .zt-progress-fill {
+  background: #000 !important;
+  border: 2px solid #fff;
+}
+
+.zt-high-contrast .zt-chapter-dot {
+  background: #fff !important;
+  border: 2px solid #000 !important;
+}
+
+/* ==================== 减少动画模式 ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .zt-progress-fill {
+    transition: none;
+  }
+
+  .zt-chapter-item {
+    transition: none;
+  }
+
+  .zt-chapter-dot {
+    transition: none;
+    animation: none;
+  }
+}

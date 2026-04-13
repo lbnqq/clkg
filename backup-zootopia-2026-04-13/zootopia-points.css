@@ -1,0 +1,360 @@
+/**
+ * 疯狂动物城 - 用户积分系统样式
+ * Zootopia User Points Styles
+ */
+
+/* ==================== 用户面板 ==================== */
+.zt-user-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  max-height: 100vh;
+  background: var(--zt-background, #ffffff);
+  box-shadow: -4px 0 20px var(--zt-shadow, rgba(0, 0, 0, 0.15));
+  z-index: 998;
+  transform: translateX(100%);
+  transition: transform 300ms ease-out;
+}
+
+.zt-user-panel.zt-user-panel-open {
+  transform: translateX(0);
+}
+
+/* ==================== 面板头部 ==================== */
+.zt-user-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--zt-primary, #FF9F43), var(--zt-secondary, #0ABDE3));
+  color: #ffffff;
+}
+
+.zt-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.zt-user-badge {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.zt-user-details {
+  flex: 1;
+}
+
+.zt-user-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.zt-user-points {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.zt-user-panel-toggle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+}
+
+.zt-user-panel-toggle:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* ==================== 面板内容 ==================== */
+.zt-user-panel-content {
+  padding: 20px;
+  overflow-y: auto;
+  max-height: calc(100vh - 100px);
+}
+
+/* ==================== 用户统计 ==================== */
+.zt-user-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.zt-stat-item {
+  text-align: center;
+  padding: 12px;
+  background: var(--zt-surface, #f8f9fa);
+  border-radius: 8px;
+}
+
+.zt-stat-label {
+  display: block;
+  font-size: 11px;
+  color: var(--zt-textSecondary, rgba(0, 0, 0, 0.6));
+  margin-bottom: 4px;
+}
+
+.zt-stat-value {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--zt-primary, #FF9F43);
+}
+
+/* ==================== 等级进度 ==================== */
+.zt-user-progress {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: var(--zt-surface, #f8f9fa);
+  border-radius: 8px;
+}
+
+.zt-progress-label {
+  font-size: 13px;
+  color: var(--zt-textSecondary, rgba(0, 0, 0, 0.6));
+  margin-bottom: 8px;
+}
+
+.zt-progress-bar {
+  height: 8px;
+  background: var(--zt-border, rgba(0, 0, 0, 0.1));
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.zt-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--zt-primary, #FF9F43), var(--zt-secondary, #0ABDE3));
+  border-radius: 4px;
+  transition: width 500ms ease-out;
+}
+
+/* ==================== 用户操作按钮 ==================== */
+.zt-user-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.zt-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--zt-surface, #f8f9fa);
+  border: 2px solid var(--zt-border, rgba(0, 0, 0, 0.1));
+  border-radius: 8px;
+  color: var(--zt-text, #1a1a2e);
+  cursor: pointer;
+  transition: all 200ms ease-out;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.zt-action-btn:hover {
+  border-color: var(--zt-primary, #FF9F43);
+  background: var(--zt-primary-dim, rgba(255, 159, 67, 0.1));
+  transform: translateY(-2px);
+}
+
+.zt-action-icon {
+  font-size: 18px;
+}
+
+.zt-action-text {
+  flex: 1;
+}
+
+/* ==================== 积分历史模态框 ==================== */
+.zt-points-history-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease-out;
+}
+
+.zt-points-history-modal.zt-history-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.zt-points-history-content {
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  background: var(--zt-background, #ffffff);
+  border-radius: 12px;
+  overflow: hidden;
+  transform: scale(0.9);
+  transition: transform 300ms ease-out;
+}
+
+.zt-points-history-modal.zt-history-visible .zt-points-history-content {
+  transform: scale(1);
+}
+
+/* ==================== 积分历史头部 ==================== */
+.zt-points-history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--zt-surface, #f8f9fa);
+  border-bottom: 1px solid var(--zt-border, rgba(0, 0, 0, 0.1));
+}
+
+.zt-points-history-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--zt-text, #1a1a2e);
+}
+
+.zt-points-history-close {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: var(--zt-textSecondary, rgba(0, 0, 0, 0.6));
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 200ms ease-out;
+}
+
+.zt-points-history-close:hover {
+  background: var(--zt-border, rgba(0, 0, 0, 0.1));
+  color: var(--zt-text, #1a1a2e);
+}
+
+/* ==================== 积分历史列表 ==================== */
+.zt-points-history-list {
+  padding: 16px;
+  overflow-y: auto;
+  max-height: 60vh;
+}
+
+.zt-history-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  background: var(--zt-surface, #f8f9fa);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.zt-history-icon {
+  font-size: 20px;
+}
+
+.zt-history-desc {
+  font-size: 14px;
+  color: var(--zt-text, #1a1a2e);
+}
+
+.zt-history-points {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.zt-points-positive {
+  color: var(--zt-accent, #10AC84);
+}
+
+.zt-points-negative {
+  color: var(--zt-primary, #EE5A24);
+}
+
+.zt-history-time {
+  font-size: 11px;
+  color: var(--zt-textSecondary, rgba(0, 0, 0, 0.6));
+}
+
+/* ==================== 响应式设计 ==================== */
+@media (max-width: 768px) {
+  .zt-user-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .zt-user-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .zt-history-item {
+    grid-template-columns: auto 1fr;
+    gap: 8px;
+  }
+
+  .zt-history-time {
+    grid-column: 2;
+  }
+}
+
+/* ==================== 暗色主题 ==================== */
+[data-theme="dark"] .zt-user-panel {
+  background: var(--zt-background, #1a1a2e);
+}
+
+[data-theme="dark"] .zt-user-stats .zt-stat-item,
+[data-theme="dark"] .zt-user-progress,
+[data-theme="dark"] .zt-action-btn,
+[data-theme="dark"] .zt-history-item {
+  background: var(--zt-surface, #16213e);
+}
+
+[data-theme="dark"] .zt-points-history-header {
+  background: var(--zt-surface, #16213e);
+  border-bottom-color: var(--zt-border, rgba(255, 255, 255, 0.1));
+}
+
+[data-theme="dark"] .zt-user-name,
+[data-theme="dark"] .zt-points-history-header h3,
+[data-theme="dark"] .zt-history-desc {
+  color: var(--zt-text, #ffffff);
+}
+
+/* ==================== 减少动画偏好 ==================== */
+@media (prefers-reduced-motion: reduce) {
+  .zt-user-panel,
+  .zt-points-history-modal,
+  .zt-points-history-content,
+  .zt-progress-fill {
+    transition: none;
+  }
+
+  .zt-action-btn:hover {
+    transform: none;
+  }
+}

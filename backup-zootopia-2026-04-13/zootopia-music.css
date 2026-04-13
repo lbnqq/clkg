@@ -1,0 +1,419 @@
+/**
+ * 疯狂动物城音乐播放器样式
+ * Zootopia Music Player Stylesheet
+ */
+
+/* ==================== 音乐播放器容器 ==================== */
+.zt-music-player-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.zt-music-player {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: white;
+  border-radius: 20px 20px 0 0;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  pointer-events: auto;
+  transition: all var(--zt-duration-normal) var(--zt-ease-out);
+}
+
+.zt-music-player.zt-player-expanded {
+  transform: translateY(0);
+}
+
+/* ==================== 播放器封面 ==================== */
+.zt-player-cover {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.zt-cover-art {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--zt-sahara), var(--zt-rainforest));
+  border-radius: 12px;
+}
+
+.zt-cover-spin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border: 3px solid rgba(255,255,255,0.2);
+  animation: zt-spin 3s linear infinite;
+  animation-play-state: paused;
+}
+
+.zt-cover-spin.running {
+  animation-play-state: running;
+}
+
+@keyframes zt-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==================== 播放器信息 ==================== */
+.zt-player-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.zt-track-info {
+  margin-bottom: 0.5rem;
+}
+
+.zt-track-title {
+  display: block;
+  font-weight: bold;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.zt-track-artist {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+}
+
+/* ==================== 进度条 ==================== */
+.zt-player-progress {
+  margin-bottom: 0.75rem;
+}
+
+.zt-progress-bar {
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.zt-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--zt-sahara), var(--zt-rainforest));
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.zt-time-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  margin-top: 0.25rem;
+}
+
+/* ==================== 控制按钮 ==================== */
+.zt-player-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.zt-control-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--zt-duration-fast) var(--zt-ease-out);
+}
+
+.zt-control-btn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.1);
+}
+
+.zt-play {
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+}
+
+/* ==================== 音量控制 ==================== */
+.zt-player-volume {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.zt-volume-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.25rem;
+}
+
+.zt-volume-slider {
+  width: 80px;
+}
+
+.zt-volume-slider input[type="range"] {
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  outline: none;
+}
+
+.zt-volume-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ==================== 播放模式 ==================== */
+.zt-player-mode {
+  margin-left: 0.5rem;
+}
+
+.zt-mode-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.25rem;
+  opacity: 0.7;
+  transition: opacity var(--zt-duration-fast) var(--zt-ease-out);
+}
+
+.zt-mode-btn:hover {
+  opacity: 1;
+}
+
+/* ==================== 展开/收起按钮 ==================== */
+.zt-player-toggle {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+/* ==================== 播放列表 ==================== */
+.zt-playlist-container {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  width: 300px;
+  background: #1a1a2e;
+  border-radius: 12px 12px 0 0;
+  padding: 1rem;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all var(--zt-duration-normal) var(--zt-ease-out);
+  pointer-events: auto;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.zt-playlist-container.zt-playlist-show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.zt-playlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.zt-playlist-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.zt-playlist-toggle {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.25rem;
+}
+
+.zt-playlist {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.zt-playlist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background var(--zt-duration-fast) var(--zt-ease-out);
+}
+
+.zt-playlist-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.zt-playlist-item.zt-playing {
+  background: rgba(255,159,67,0.2);
+}
+
+.zt-playlist-cover {
+  font-size: 1.5rem;
+}
+
+.zt-playlist-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.zt-playlist-title {
+  display: block;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.zt-playlist-artist {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.zt-playlist-duration {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+}
+
+/* ==================== 迷你播放器 ==================== */
+.zt-mini-player {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--zt-duration-normal) var(--zt-ease-out);
+}
+
+.zt-mini-player:hover {
+  transform: scale(1.1);
+}
+
+.zt-mini-player-icon {
+  font-size: 1.5rem;
+}
+
+/* ==================== 响应式设计 ==================== */
+@media (max-width: 768px) {
+  .zt-music-player {
+    padding: 0.75rem;
+  }
+
+  .zt-player-cover {
+    width: 60px;
+    height: 60px;
+  }
+
+  .zt-cover-art {
+    font-size: 2rem;
+  }
+
+  .zt-track-title {
+    font-size: 0.9rem;
+  }
+
+  .zt-track-artist {
+    font-size: 0.75rem;
+  }
+
+  .zt-control-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .zt-play {
+    width: 44px;
+    height: 44px;
+  }
+
+  .zt-volume-slider {
+    width: 60px;
+  }
+
+  .zt-playlist-container {
+    width: 250px;
+  }
+
+  .zt-mini-player {
+    bottom: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* ==================== 深色模式支持 ==================== */
+@media (prefers-color-scheme: dark) {
+  .zt-comment-section {
+    background: #2a2a2a;
+  }
+
+  .zt-comment {
+    background: #333;
+  }
+}
+
+/* ==================== 减少动画偏好支持 ==================== */
+@media (prefers-reduced-motion: reduce) {
+  .zt-cover-spin {
+    animation: none;
+  }
+
+  .zt-mini-player:hover,
+  .zt-control-btn:hover,
+  .zt-share-btn:hover {
+    transform: none;
+  }
+}

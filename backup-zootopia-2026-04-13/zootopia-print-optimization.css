@@ -1,0 +1,435 @@
+/**
+ * 疯狂动物城打印优化样式
+ * Zootopia Print Optimization
+ *
+ * 优化打印和 PDF 导出样式
+ */
+
+/* ============================================
+   打印媒体查询
+   ============================================ */
+
+@media print {
+  /* === 全局设置 === */
+
+  /* 重置背景 */
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* 隐藏不需要打印的元素 */
+  .zt-no-print,
+  .noprint,
+  nav,
+  .site-header,
+  .site-footer,
+  .sidebar,
+  .comments,
+  .pagination,
+  .related-posts,
+  .toc,
+  .reading-progress,
+  .share-buttons,
+  .advertisement,
+  .widget-area,
+  #busuanzi_container_site_pv,
+  #busuanzi_container_page_pv,
+  .post-copyright,
+  .post-tags,
+  .post-meta,
+  .scroll-to-top,
+  .dark-mode-toggle,
+  .search-input,
+  .mobile-nav,
+  .desktop-nav,
+  .zt-share-container,
+  .zt-keyboard-help-modal,
+  .zt-restore-prompt,
+  iframe,
+  video,
+  audio {
+    display: none !important;
+  }
+
+  /* === 页面布局 === */
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* === 文章内容 === */
+
+  article,
+  .post-content,
+  .article-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 文章标题 */
+  .post-title,
+  .article-title,
+  h1.entry-title {
+    font-size: 18pt;
+    margin-bottom: 12pt;
+    page-break-after: avoid;
+  }
+
+  /* 文章元信息 */
+  .post-meta,
+  .post-date,
+  .post-author {
+    display: inline !important;
+    font-size: 10pt;
+    color: #666 !important;
+    margin-right: 12pt;
+  }
+
+  /* 文章内容 */
+  .post-content p,
+  .entry-content p {
+    orphans: 3;
+    widows: 3;
+    margin-bottom: 12pt;
+  }
+
+  /* 标题 */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-before: avoid;
+  }
+
+  h1 {
+    font-size: 18pt;
+  }
+
+  h2 {
+    font-size: 14pt;
+    margin-top: 18pt;
+    margin-bottom: 10pt;
+  }
+
+  h3 {
+    font-size: 12pt;
+    margin-top: 14pt;
+    margin-bottom: 8pt;
+  }
+
+  /* === 图片 === */
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+    display: block;
+    margin: 12pt 0;
+  }
+
+  figure {
+    page-break-inside: avoid;
+    margin: 12pt 0;
+  }
+
+  figcaption {
+    font-size: 10pt;
+    color: #666 !important;
+    text-align: center;
+    margin-top: 6pt;
+  }
+
+  /* === 链接 === */
+
+  a {
+    color: black !important;
+    text-decoration: underline;
+  }
+
+  /* 显示链接 URL */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.9em;
+    word-break: break-all;
+  }
+
+  /* === 代码块 === */
+
+  pre,
+  code {
+    background: #f5f5f5 !important;
+    border: 1px solid #ddd !important;
+    padding: 6pt !important;
+    font-family: 'Courier New', monospace !important;
+    font-size: 10pt !important;
+    page-break-inside: avoid;
+    overflow-wrap: break-word;
+  }
+
+  pre {
+    white-space: pre-wrap;
+    margin-bottom: 12pt;
+  }
+
+  /* === 引用 === */
+
+  blockquote {
+    border-left: 3pt solid #333 !important;
+    padding-left: 12pt !important;
+    margin: 12pt 0 !important;
+    page-break-inside: avoid;
+  }
+
+  /* === 表格 === */
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    page-break-inside: avoid;
+  }
+
+  th,
+  td {
+    border: 1px solid #333 !important;
+    padding: 6pt !important;
+    text-align: left;
+  }
+
+  th {
+    font-weight: bold;
+    background: #f5f5f5 !important;
+  }
+
+  /* === 列表 === */
+
+  ul,
+  ol {
+    margin: 12pt 0;
+    padding-left: 24pt;
+  }
+
+  li {
+    margin-bottom: 6pt;
+  }
+
+  /* === 分页控制 === */
+
+  /* 避免孤行和寡行 */
+  p,
+  .post-content > *,
+  .entry-content > * {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* 避免标题在页面底部 */
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  /* 避免元素被分割 */
+  figure,
+  table,
+  pre,
+  blockquote {
+    page-break-inside: avoid;
+  }
+
+  /* === 页眉页脚 === */
+
+  @page {
+    margin: 2cm;
+    size: A4;
+  }
+
+  @page :first {
+    margin-top: 0;
+  }
+
+  /* === 打印信息 === */
+
+  /* 在页面底部添加 URL 和日期 */
+  .print-footer {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12pt;
+    border-top: 1px solid #ccc;
+    font-size: 9pt;
+    text-align: center;
+  }
+
+  /* === 特殊元素处理 === */
+
+  /* 隐藏所有按钮 */
+  button,
+  .btn,
+  input[type="button"],
+  input[type="submit"],
+  .zt-btn {
+    display: none !important;
+  }
+
+  /* 隐藏表单元素 */
+  input,
+  textarea,
+  select {
+    border: 1px solid #ccc !important;
+  }
+
+  /* 隐藏滚动条 */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* === 文档信息 === */
+
+  /* 添加打印来源信息 */
+  article::before {
+    content: "来源: " attr(data-url);
+    display: block;
+    font-size: 10pt;
+    color: #666 !important;
+    margin-bottom: 12pt;
+    padding-bottom: 12pt;
+    border-bottom: 1px solid #ccc;
+  }
+
+  /* 添加打印日期 */
+  article::after {
+    content: "打印日期: " counter(print-date);
+    display: block;
+    font-size: 10pt;
+    color: #666 !important;
+    margin-top: 12pt;
+    padding-top: 12pt;
+    border-top: 1px solid #ccc;
+    counter-increment: print-date;
+  }
+}
+
+/* ============================================
+   屏幕阅读器优化（打印预览）
+   ============================================ */
+
+@media screen and (prefers-reduced-data: print-preview) {
+  /* 针对打印预览的优化 */
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+/* ============================================
+   打印按钮样式（屏幕显示）
+   ============================================ */
+
+@media screen {
+  .zt-print-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--zt-primary, #FF9F43);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .zt-print-button:hover {
+    background: var(--zt-primary-dark, #EE8A2D);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .zt-print-button:active {
+    transform: translateY(0);
+  }
+
+  .zt-print-button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* 打印按钮位置 */
+  .zt-print-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;
+  }
+}
+
+/* ============================================
+   PDF 导出优化
+   ============================================ */
+
+@media print {
+  /* 确保中文字符正确显示 */
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+
+  /* 避免字符截断 */
+  p,
+  li,
+  td,
+  th {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* 确保长单词换行 */
+  code,
+  pre {
+    word-break: break-all;
+  }
+
+  /* 优化长链接 */
+  a[href^="http"] {
+    word-break: break-all;
+  }
+}
+
+/* ============================================
+   针对不同浏览器的打印优化
+   ============================================ */
+
+/* Chrome/Edge */
+@media print and (-webkit-min-device-pixel-ratio: 0) {
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+/* Firefox */
+@media print and (min--moz-device-pixel-ratio: 0) {
+  body {
+    color-adjust: exact;
+  }
+}
+
+/* Safari */
+@media print and (-webkit-min-device-pixel-ratio: 0) {
+  /* Safari 打印优化 */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    word-break: break-all;
+  }
+}

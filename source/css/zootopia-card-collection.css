@@ -1,0 +1,562 @@
+/**
+ * 疯狂动物城 - 卡牌收藏系统样式
+ * Version: 1.0.0
+ *
+ * 轻量级卡牌样式
+ */
+
+/* ========================================
+   浮动按钮
+   ======================================== */
+
+.zt-cards-floating-btn {
+    position: fixed;
+    bottom: 140px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    border: 3px solid #FFA500;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zt-cards-floating-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.7);
+}
+
+.zt-cards-floating-btn:active {
+    transform: scale(0.95);
+}
+
+/* ========================================
+   卡牌模态框
+   ======================================== */
+
+.zt-card-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.zt-card-modal.zt-show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.zt-card-modal-content {
+    background: white;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 85vh;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    transform: scale(0.8) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.zt-card-modal.zt-show .zt-card-modal-content {
+    transform: scale(1) translateY(0);
+}
+
+/* 收藏簿模态框 */
+.zt-collection-modal {
+    max-width: 1000px;
+}
+
+/* ========================================
+   模态框头部
+   ======================================== */
+
+.zt-card-modal-header {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.zt-card-modal-header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.zt-card-modal-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.zt-card-modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+/* ========================================
+   模态框主体
+   ======================================== */
+
+.zt-card-modal-body {
+    padding: 25px;
+    max-height: calc(85vh - 80px);
+    overflow-y: auto;
+}
+
+/* ========================================
+   卡牌元素
+   ======================================== */
+
+.zt-card {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    vertical-align: top;
+}
+
+.zt-card-normal {
+    width: 140px;
+    height: 200px;
+    margin: 10px;
+}
+
+.zt-card-small {
+    width: 100px;
+    height: 140px;
+    margin: 8px;
+}
+
+.zt-card:hover {
+    transform: translateY(-8px) scale(1.05);
+}
+
+.zt-card-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 卡牌头部 */
+.zt-card-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.zt-card-rarity {
+    font-weight: bold;
+}
+
+.zt-card-stars {
+    letter-spacing: -1px;
+}
+
+/* 卡牌表情 */
+.zt-card-emoji {
+    font-size: 48px;
+    margin: 10px 0;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.zt-card-small .zt-card-emoji {
+    font-size: 36px;
+    margin: 5px 0;
+}
+
+/* 卡牌信息 */
+.zt-card-info {
+    text-align: center;
+    color: white;
+}
+
+.zt-card-name {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.zt-card-small .zt-card-name {
+    font-size: 11px;
+}
+
+.zt-card-role {
+    font-size: 11px;
+    opacity: 0.9;
+}
+
+.zt-card-small .zt-card-role {
+    font-size: 9px;
+}
+
+/* 锁定状态 */
+.zt-card-locked .zt-card-inner {
+    opacity: 0.6;
+    filter: grayscale(50%);
+}
+
+.zt-card-lock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* ========================================
+   卡牌详情
+   ======================================== */
+
+.zt-detail-card {
+    width: 200px;
+    margin: 0 auto 25px;
+    padding: 30px 20px;
+    border-radius: 16px;
+    border: 4px solid;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.zt-detail-emoji {
+    font-size: 80px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.zt-detail-name {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.zt-detail-english {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+}
+
+.zt-detail-rarity {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.zt-detail-info {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.zt-detail-section {
+    margin-bottom: 20px;
+}
+
+.zt-detail-section h3 {
+    color: #FFD700;
+    font-size: 18px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #FFD700;
+    padding-bottom: 8px;
+}
+
+.zt-detail-section p {
+    color: #333;
+    line-height: 1.6;
+    margin: 8px 0;
+}
+
+.zt-owned {
+    color: #10AC84;
+    font-weight: bold;
+}
+
+.zt-locked {
+    color: #E17055;
+    font-weight: bold;
+}
+
+.zt-quote {
+    font-style: italic;
+    background: #FFF5E6;
+    padding: 15px;
+    border-left: 4px solid #FFD700;
+    border-radius: 4px;
+}
+
+.zt-unlock-hint {
+    background: #FFEAA7;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    color: #D35400;
+    font-weight: 500;
+}
+
+/* ========================================
+   属性条
+   ======================================== */
+
+.zt-stat-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.zt-stat-label {
+    width: 60px;
+    font-size: 13px;
+    color: #666;
+}
+
+.zt-stat-bar {
+    flex: 1;
+    height: 20px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+.zt-stat-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
+    transition: width 0.5s ease;
+    border-radius: 10px;
+}
+
+.zt-stat-value {
+    width: 35px;
+    text-align: right;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+/* ========================================
+   收藏簿
+   ======================================== */
+
+.zt-collection-summary {
+    background: linear-gradient(135deg, #FFF5E6 0%, #FFEAA7 100%);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 2px solid #FFD700;
+}
+
+.zt-progress-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.zt-progress-bar {
+    width: 100%;
+    height: 30px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.zt-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
+    transition: width 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 15px;
+}
+
+.zt-progress-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #D35400;
+}
+
+.zt-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.zt-stat-badge {
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.zt-stat-name {
+    display: block;
+    font-size: 12px;
+    opacity: 0.9;
+    margin-bottom: 5px;
+}
+
+.zt-stat-count {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.zt-collection-section {
+    margin-bottom: 30px;
+}
+
+.zt-collection-section h3 {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.zt-card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* ========================================
+   响应式设计
+   ======================================== */
+
+@media (max-width: 768px) {
+    .zt-cards-floating-btn {
+        bottom: 130px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    .zt-card-modal-content {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .zt-card-modal-body {
+        padding: 15px;
+        max-height: calc(90vh - 70px);
+    }
+
+    .zt-detail-card {
+        width: 150px;
+        margin-bottom: 20px;
+    }
+
+    .zt-detail-emoji {
+        font-size: 60px;
+    }
+
+    .zt-detail-name {
+        font-size: 18px;
+    }
+
+    .zt-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .zt-card-grid {
+        justify-content: flex-start;
+    }
+
+    .zt-card-small {
+        width: 90px;
+        height: 130px;
+    }
+}
+
+/* ========================================
+   性能优化
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .zt-cards-floating-btn,
+    .zt-card,
+    .zt-card-modal,
+    .zt-card-modal-content,
+    .zt-stat-fill,
+    .zt-progress-fill {
+        transition: none;
+        animation: none;
+    }
+}
+
+/* ========================================
+   打印样式
+   ======================================== */
+
+@media print {
+    .zt-cards-floating-btn,
+    .zt-card-modal-close {
+        display: none;
+    }
+
+    .zt-card-modal {
+        position: static;
+        background: white;
+    }
+
+    .zt-card-modal-content {
+        box-shadow: none;
+        transform: none;
+    }
+
+    .zt-card {
+        page-break-inside: avoid;
+    }
+}

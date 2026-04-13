@@ -1,0 +1,331 @@
+/**
+ * 疯狂动物城社交样式
+ * Zootopia Social Stylesheet
+ */
+
+/* ==================== 分享按钮 ==================== */
+.zt-share-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.zt-share-buttons.zt-share-vertical {
+  flex-direction: column;
+}
+
+.zt-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--zt-share-color, #666);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: transform var(--zt-duration-fast) var(--zt-ease-out);
+}
+
+.zt-share-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.zt-share-icon {
+  font-size: 1.2rem;
+}
+
+.zt-share-name {
+  font-weight: 500;
+}
+
+/* ==================== 表情反应 ==================== */
+.zt-emoji-reactions {
+  position: relative;
+  display: inline-block;
+}
+
+.zt-emoji-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f5f5f5;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.zt-emoji-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.zt-emoji-dropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: none;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  min-width: 200px;
+}
+
+.zt-emoji-dropdown.zt-emoji-show {
+  display: flex;
+  animation: zt-slideDown var(--zt-duration-normal) var(--zt-ease-out);
+}
+
+.zt-emoji-item {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  transition: background var(--zt-duration-fast) var(--zt-ease-out);
+}
+
+.zt-emoji-item:hover {
+  background: #f5f5f5;
+  transform: scale(1.2);
+}
+
+.zt-emoji-item small {
+  display: block;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* ==================== 表情栏 ==================== */
+.zt-emoji-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.zt-emoji-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all var(--zt-duration-fast) var(--zt-ease-out);
+}
+
+.zt-emoji-btn:hover {
+  background: var(--zt-sahara);
+  color: white;
+}
+
+.zt-emoji-btn.zt-reacted {
+  background: var(--zt-sahara);
+  color: white;
+}
+
+.zt-emoji-icon {
+  font-size: 1.5rem;
+}
+
+.zt-emoji-count {
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* ==================== 评论组件 ==================== */
+.zt-comment-section {
+  background: #f9f9f9;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.zt-comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.zt-comment-header h3 {
+  margin: 0;
+}
+
+.zt-comment-count {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.zt-comment-form {
+  margin-bottom: 1.5rem;
+}
+
+.zt-comment-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.zt-comment-input:focus {
+  outline: none;
+  border-color: var(--zt-sahara);
+}
+
+.zt-comment-actions {
+  margin-top: 0.5rem;
+  text-align: right;
+}
+
+.zt-comment-submit {
+  padding: 0.5rem 1.5rem;
+  background: var(--zt-sahara);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.zt-comment-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* ==================== 单个评论 ==================== */
+.zt-comment {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  animation: zt-fadeIn var(--zt-duration-normal) var(--zt-ease-out);
+}
+
+.zt-comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--zt-sahara), var(--zt-rainforest));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.zt-comment-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.zt-comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.zt-comment-author {
+  font-weight: bold;
+  color: #333;
+}
+
+.zt-comment-time {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.zt-comment-text {
+  color: #555;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.zt-comment-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.zt-comment-like,
+.zt-comment-reply {
+  background: none;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  color: #666;
+  font-size: 0.9rem;
+  transition: color var(--zt-duration-fast) var(--zt-ease-out);
+}
+
+.zt-comment-like:hover,
+.zt-comment-reply:hover {
+  color: var(--zt-sahara);
+}
+
+.zt-comment-like.zt-liked {
+  color: var(--zt-sahara);
+}
+
+.zt-like-count {
+  font-weight: bold;
+}
+
+/* ==================== Toast 通知 ==================== */
+.zt-social-toast {
+  animation: zt-slideDown var(--zt-duration-normal) var(--zt-ease-out);
+}
+
+.zt-social-toast-out {
+  animation: zt-fadeOut var(--zt-duration-normal) var(--zt-ease-out) forwards;
+}
+
+@keyframes zt-fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+/* ==================== 响应式设计 ==================== */
+@media (max-width: 768px) {
+  .zt-share-buttons {
+    justify-content: center;
+  }
+
+  .zt-emoji-bar {
+    justify-content: center;
+  }
+
+  .zt-comment {
+    flex-direction: column;
+  }
+
+  .zt-comment-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 1.25rem;
+  }
+
+  .zt-comment-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

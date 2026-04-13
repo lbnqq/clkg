@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 我的个人博客
-subtitle: 记录生活,分享知识
-description: 欢迎来到我的个人博客
-keywords: 博客,技术,生活
+title: 疯狂动物城 | Zootopia Blog
+subtitle: "Try Everything! 任何人都可以成就任何事 ✨"
+description: 欢迎来到我的动物城！在这里记录技术、分享生活，像朱迪一样勇敢追梦 🐰🦊
+keywords: 动物城,Zootopia,博客,技术,生活,前端,Hexo,Butterfly
 author: 吃一口瓜
 language: zh-CN
 timezone: ''
@@ -20,6 +20,9 @@ permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# 疯狂动物城主题配置
+since: 2025  # 建站年份
 
 # Directory
 source_dir: source

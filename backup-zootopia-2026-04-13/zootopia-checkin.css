@@ -1,0 +1,268 @@
+/**
+ * 疯狂动物城 - 每日签到系统样式
+ * Zootopia Daily Checkin Styles
+ */
+
+/* ==================== 签到组件 ==================== */
+.zt-checkin-widget {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: var(--zt-surface, #f8f9fa);
+  border-radius: 12px;
+  border: 1px solid var(--zt-border, rgba(0, 0, 0, 0.1));
+}
+
+/* ==================== 签到状态 ==================== */
+.zt-checkin-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.zt-checkin-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.zt-checkin-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--zt-text, #1a1a2e);
+}
+
+.zt-checkin-streak {
+  font-size: 13px;
+  color: var(--zt-textSecondary, rgba(0, 0, 0, 0.6));
+}
+
+/* ==================== 签到按钮 ==================== */
+.zt-checkin-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--zt-primary, #FF9F43), var(--zt-secondary, #0ABDE3));
+  border: none;
+  border-radius: 20px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 200ms ease-out;
+  box-shadow: 0 4px 12px rgba(255, 159, 67, 0.3);
+}
+
+.zt-checkin-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 159, 67, 0.4);
+}
+
+.zt-checkin-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.zt-checkin-btn:disabled,
+.zt-checkin-btn.zt-checked {
+  background: var(--zt-accent, #10AC84);
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.zt-checkin-icon {
+  font-size: 18px;
+}
+
+.zt-checkin-text {
+  font-size: 14px;
+}
+
+/* ==================== 签到奖励 ==================== */
+.zt-checkin-rewards {
+  margin-top: 16px;
+}
+
+.zt-rewards-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--zt-text, #1a1a2e);
+  margin-bottom: 12px;
+}
+
+.zt-rewards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ==================== 奖励项 ==================== */
+.zt-reward-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--zt-background, #ffffff);
+  border-radius: 8px;
+  border: 1px solid var(--zt-border, rgba(0, 0, 0, 0.1));
+  transition: all 200ms ease-out;
+}
+
+.zt-reward-item:hover {
+  border-color: var(--zt-primary, #FF9F43);
+  transform: translateX(4px);
+}
+
+.zt-reward-achieved {
+  background: linear-gradient(135deg, var(--zt-primary-dim, rgba(255, 159, 67, 0.1)), var(--zt-accent-dim, rgba(16, 172, 132, 0.1)));
+  border-color: var(--zt-accent, #10AC84);
+}
+
+.zt-reward-badge {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  background: var(--zt-surface, #f8f9fa);
+  border-radius: 50%;
+}
+
+.zt-reward-achieved .zt-reward-badge {
+  background: linear-gradient(135deg, var(--zt-primary, #FF9F43), var(--zt-accent, #10AC84));
+  animation: zt-badge-glow 2s ease-in-out infinite;
+}
+
+@keyframes zt-badge-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 159, 67, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 159, 67, 0.8);
+  }
+}
+
+.zt-reward-info {
+  flex: 1;
+}
+
+.zt-reward-desc {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--zt-text, #1a1a2e);
+  margin-bottom: 4px;
+}
+
+.zt-reward-bonus {
+  font-size: 12px;
+  color: var(--zt-primary, #FF9F43);
+  margin-bottom: 6px;
+}
+
+.zt-reward-achieved .zt-reward-bonus {
+  color: var(--zt-accent, #10AC84);
+}
+
+/* ==================== 奖励进度 ==================== */
+.zt-reward-progress {
+  height: 4px;
+  background: var(--zt-border, rgba(0, 0, 0, 0.1));
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.zt-reward-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--zt-primary, #FF9F43), var(--zt-accent, #10AC84));
+  border-radius: 2px;
+  transition: width 300ms ease-out;
+}
+
+.zt-reward-achieved .zt-reward-progress-bar {
+  background: var(--zt-accent, #10AC84);
+}
+
+/* ==================== 响应式设计 ==================== */
+@media (max-width: 768px) {
+  .zt-checkin-widget {
+    padding: 12px;
+  }
+
+  .zt-checkin-status {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .zt-checkin-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .zt-reward-item {
+    padding: 10px;
+  }
+}
+
+/* ==================== 暗色主题 ==================== */
+[data-theme="dark"] .zt-checkin-widget {
+  background: var(--zt-surface, #16213e);
+  border-color: var(--zt-border, rgba(255, 255, 255, 0.1));
+}
+
+[data-theme="dark"] .zt-checkin-title,
+[data-theme="dark"] .zt-rewards-title,
+[data-theme="dark"] .zt-reward-desc {
+  color: var(--zt-text, #ffffff);
+}
+
+[data-theme="dark"] .zt-reward-item {
+  background: var(--zt-background, #1a1a2e);
+  border-color: var(--zt-border, rgba(255, 255, 255, 0.1));
+}
+
+[data-theme="dark"] .zt-reward-badge {
+  background: var(--zt-surface, #16213e);
+}
+
+/* ==================== 减少动画偏好 ==================== */
+@media (prefers-reduced-motion: reduce) {
+  .zt-checkin-btn:hover,
+  .zt-reward-item:hover {
+    transform: none;
+  }
+
+  .zt-reward-achieved .zt-reward-badge {
+    animation: none;
+  }
+
+  .zt-reward-progress-bar,
+  .zt-checkin-btn,
+  .zt-reward-item {
+    transition: none;
+  }
+}
+
+/* ==================== 签到成功动画 ==================== */
+@keyframes zt-checkin-success {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.zt-checkin-btn:not(:disabled).zt-checkin-success {
+  animation: zt-checkin-success 300ms ease-out;
+}
+
+/* ==================== 连续签到奖励高亮 ==================== */
+.zt-checkin-streak-highlight {
+  color: var(--zt-primary, #FF9F43);
+  font-weight: 700;
+}

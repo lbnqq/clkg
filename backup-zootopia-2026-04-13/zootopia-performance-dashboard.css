@@ -1,0 +1,458 @@
+/**
+ * 疯狂动物城博客系统 - 性能仪表板样式
+ * Zootopia Blog System - Performance Dashboard Styles
+ *
+ * 版本: v3.5.0
+ * 优化轮次: 第19轮
+ * 最后更新: 2026-04-12
+ */
+
+/* ==================== 仪表板容器 ==================== */
+#zt-performance-dashboard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+}
+
+.zt-dashboard-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  animation: zt-fadeIn 0.2s ease;
+}
+
+.zt-dashboard-panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  animation: zt-scaleIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+}
+
+/* ==================== 仪表板头部 ==================== */
+.zt-dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 30px;
+  border-bottom: 1px solid #E9ECEF;
+  background: linear-gradient(135deg, #FF9F43 0%, #F8B739 100%);
+  color: white;
+}
+
+.zt-dashboard-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.zt-dashboard-icon {
+  font-size: 32px;
+}
+
+.zt-dashboard-title h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Fredoka One', sans-serif;
+}
+
+.zt-dashboard-close {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  font-size: 24px;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.zt-dashboard-close:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.1);
+}
+
+/* ==================== 仪表板内容 ==================== */
+.zt-dashboard-content {
+  padding: 30px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.zt-dashboard-section {
+  margin-bottom: 30px;
+}
+
+.zt-section-title {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2C3A47;
+  font-family: 'Fredoka One', sans-serif;
+}
+
+/* ==================== 性能指标网格 ==================== */
+.zt-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.zt-metric-card {
+  background: #F8F9FA;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.zt-metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.zt-metric-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.zt-metric-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2C3A47;
+}
+
+.zt-metric-rating {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+}
+
+.zt-metric-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2C3A47;
+  margin-bottom: 8px;
+}
+
+.zt-metric-unit {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6C757D;
+  margin-left: 2px;
+}
+
+.zt-metric-label {
+  font-size: 12px;
+  color: #6C757D;
+}
+
+/* ==================== 评分卡片 ==================== */
+.zt-score-card {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: #F8F9FA;
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.zt-score-circle {
+  width: 120px;
+  height: 120px;
+  border: 6px solid;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.zt-score-content {
+  text-align: center;
+}
+
+.zt-score-emoji {
+  display: block;
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.zt-score-value {
+  display: block;
+  font-size: 36px;
+  font-weight: 700;
+  font-family: 'Fredoka One', sans-serif;
+}
+
+.zt-score-avg {
+  display: block;
+  font-size: 14px;
+  color: #6C757D;
+  margin-top: 4px;
+}
+
+.zt-score-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.zt-score-detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.zt-score-detail span:first-child {
+  font-weight: 600;
+  color: #2C3A47;
+}
+
+.zt-score-detail span:last-child {
+  font-weight: 700;
+  color: #FF9F43;
+}
+
+/* ==================== 优化建议列表 ==================== */
+.zt-recommendations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.zt-recommendation-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #F8F9FA;
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+.zt-recommendation--high {
+  border-left-color: #EE5A24;
+}
+
+.zt-recommendation--medium {
+  border-left-color: #F8B739;
+}
+
+.zt-recommendation--low {
+  border-left-color: #26DE81;
+}
+
+.zt-recommendation-priority {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.zt-recommendation-text {
+  flex: 1;
+  font-size: 14px;
+  color: #2C3A47;
+}
+
+.zt-recommendations-empty {
+  text-align: center;
+  padding: 40px;
+  color: #26DE81;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ==================== 监控控制 ==================== */
+.zt-monitoring-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.zt-monitoring-btn {
+  flex: 1;
+}
+
+.zt-monitoring-info {
+  padding: 16px;
+  background: #E9ECEF;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #6C757D;
+  text-align: center;
+}
+
+/* ==================== 仪表板底部 ==================== */
+.zt-dashboard-footer {
+  padding: 20px 30px;
+  border-top: 1px solid #E9ECEF;
+  background: #F8F9FA;
+}
+
+.zt-dashboard-stats {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  color: #6C757D;
+}
+
+/* ==================== 动画 ==================== */
+@keyframes zt-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zt-scaleIn {
+  from {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* ==================== 响应式设计 ==================== */
+@media (max-width: 768px) {
+  .zt-dashboard-panel {
+    width: 95%;
+    max-height: 95vh;
+  }
+
+  .zt-dashboard-header {
+    padding: 20px;
+  }
+
+  .zt-dashboard-title h2 {
+    font-size: 20px;
+  }
+
+  .zt-dashboard-content {
+    padding: 20px;
+  }
+
+  .zt-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .zt-score-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .zt-score-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .zt-score-value {
+    font-size: 28px;
+  }
+
+  .zt-monitoring-controls {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .zt-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================== 暗色模式支持 ==================== */
+@media (prefers-color-scheme: dark) {
+  .zt-dashboard-panel {
+    background: #2C3A47;
+  }
+
+  .zt-dashboard-content {
+    background: #2C3A47;
+  }
+
+  .zt-section-title {
+    color: #F8F9FA;
+  }
+
+  .zt-metric-card {
+    background: #374151;
+  }
+
+  .zt-metric-name {
+    color: #F8F9FA;
+  }
+
+  .zt-metric-value {
+    color: #F8F9FA;
+  }
+
+  .zt-metric-label {
+    color: #ADB5BD;
+  }
+
+  .zt-score-card {
+    background: #374151;
+  }
+
+  .zt-score-detail {
+    background: #2C3A47;
+  }
+
+  .zt-score-detail span:first-child {
+    color: #F8F9FA;
+  }
+
+  .zt-recommendation-item {
+    background: #374151;
+  }
+
+  .zt-recommendation-text {
+    color: #F8F9FA;
+  }
+
+  .zt-dashboard-footer {
+    background: #374151;
+    border-top-color: #4A5568;
+  }
+
+  .zt-dashboard-stats {
+    color: #ADB5BD;
+  }
+
+  .zt-monitoring-info {
+    background: #4A5568;
+    color: #ADB5BD;
+  }
+}

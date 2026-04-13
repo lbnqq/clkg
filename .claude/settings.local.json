@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__serena__get_current_config",
+      "mcp__serena__activate_project",
+      "mcp__serena__check_onboarding_performed",
+      "mcp__serena__onboarding",
+      "mcp__open-websearch__search",
+      "mcp__serena__find_symbol",
+      "Bash(hexo generate:*)",
+      "Bash(cd \"G:\\\\个人博客网站\\\\my-blog\" && npm run deploy)"
+    ]
+  }
+}

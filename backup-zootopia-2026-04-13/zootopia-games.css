@@ -1,0 +1,392 @@
+/**
+ * 疯狂动物城游戏样式
+ * Zootopia Games Stylesheet
+ */
+
+/* ==================== 游戏入口按钮 ==================== */
+.zt-game-trigger {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--zt-sahara), var(--zt-sahara-hover));
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(255, 159, 67, 0.4);
+  z-index: 997;
+  transition: transform var(--zt-duration-normal) var(--zt-ease-out);
+}
+
+.zt-game-trigger:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+/* ==================== 游戏菜单 ==================== */
+.zt-game-menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  z-index: 10000;
+  min-width: 400px;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.zt-game-menu-header {
+  background: linear-gradient(135deg, var(--zt-sahara), var(--zt-sahara-hover));
+  color: white;
+  padding: 1.5rem;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.zt-game-menu-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.zt-game-menu-close {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background var(--zt-duration-fast) var(--zt-ease-out);
+}
+
+.zt-game-menu-close:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.zt-game-menu-body {
+  padding: 1rem;
+}
+
+.zt-game-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: all var(--zt-duration-fast) var(--zt-ease-out);
+}
+
+.zt-game-item:hover {
+  background: var(--zt-sahara);
+  color: white;
+  transform: translateX(5px);
+}
+
+.zt-game-icon {
+  font-size: 2rem;
+}
+
+.zt-game-info h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+}
+
+.zt-game-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ==================== 游戏容器 ==================== */
+.zt-game-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zt-game-header {
+  background: linear-gradient(135deg, var(--zt-sahara), var(--zt-sahara-hover));
+  color: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.zt-game-header h2 {
+  margin: 0;
+}
+
+.zt-game-exit {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.zt-game-content {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  min-width: 400px;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.zt-score-board {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+}
+
+.zt-score-board strong {
+  color: var(--zt-sahara-hover);
+}
+
+/* ==================== 猜角色游戏 ==================== */
+.zt-hint-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.zt-hint {
+  background: #f0f0f0;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  transition: opacity var(--zt-duration-normal) var(--zt-ease-out);
+}
+
+.zt-guess-input {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.zt-guess-input input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 24px;
+  font-size: 1rem;
+}
+
+.zt-guess-input input:focus {
+  outline: none;
+  border-color: var(--zt-sahara);
+}
+
+.zt-guess-submit {
+  padding: 0.75rem 2rem;
+  background: var(--zt-sahara);
+  color: white;
+  border: none;
+  border-radius: 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--zt-duration-fast) var(--zt-ease-out);
+}
+
+.zt-guess-submit:hover {
+  background: var(--zt-sahara-hover);
+}
+
+.zt-feedback {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  min-height: 1.5rem;
+}
+
+/* ==================== 记忆卡片游戏 ==================== */
+.zt-memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.zt-memory-card {
+  aspect-ratio: 1;
+  background: #f9f9f9;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform var(--zt-duration-slow) var(--zt-ease-out);
+}
+
+.zt-memory-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.zt-card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-radius: 12px;
+}
+
+.zt-card-front {
+  background: linear-gradient(135deg, var(--zt-sahara), var(--zt-sahara-hover));
+  color: white;
+}
+
+.zt-card-back {
+  background: white;
+  transform: rotateY(180deg);
+  border: 2px solid #e0e0e0;
+}
+
+/* ==================== 接Pawpsicle游戏 ==================== */
+.zt-catch-area {
+  position: relative;
+  height: 400px;
+  background: linear-gradient(180deg, #74b9ff, #0984e3);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.zt-catch-start {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.zt-start-catch {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  background: white;
+  color: #0984e3;
+  border: none;
+  border-radius: 24px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.zt-pawpsicle {
+  position: absolute;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  pointer-events: auto;
+}
+
+/* ==================== 游戏结果 ==================== */
+.zt-game-win,
+.zt-game-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.zt-win-content,
+.zt-game-over-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.zt-win-content h2,
+.zt-game-over-content h2 {
+  color: var(--zt-sahara);
+  margin-top: 0;
+}
+
+.zt-result-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.zt-play-again,
+.zt-close-game {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.zt-play-again {
+  background: var(--zt-sahara);
+  color: white;
+}
+
+.zt-close-game {
+  background: #e0e0e0;
+  color: #333;
+}
+
+/* ==================== 响应式设计 ==================== */
+@media (max-width: 768px) {
+  .zt-game-trigger {
+    bottom: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .zt-game-menu,
+  .zt-game-content {
+    min-width: unset;
+    width: 90vw;
+  }
+
+  .zt-memory-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+
+  .zt-catch-area {
+    height: 300px;
+  }
+}

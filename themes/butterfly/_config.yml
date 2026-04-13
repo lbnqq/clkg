@@ -50,6 +50,12 @@ social:
   # fas fa-envelope: mailto:xxxxxx@gmail.com || Email || '#4a7dbe'
 
 # --------------------------------------
+# Zootopia Theme Settings (疯狂动物城主题配置)
+# --------------------------------------
+zootopia:
+  enable: true
+
+# --------------------------------------
 # Image Settings
 # --------------------------------------
 

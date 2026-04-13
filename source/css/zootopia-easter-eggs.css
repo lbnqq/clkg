@@ -1,0 +1,244 @@
+/**
+ * 疯狂动物城 - 彩蛋系统样式
+ * Version: 1.0.0
+ *
+ * 轻量级彩蛋气泡样式
+ */
+
+/* ========================================
+   彩蛋气泡
+   ======================================== */
+
+.zt-egg-bubble {
+    position: fixed;
+    background: white;
+    border-radius: 20px;
+    padding: 12px 18px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    max-width: 320px;
+    border: 2px solid var(--zt-egg-color, #FF9F43);
+}
+
+.zt-egg-bubble.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 彩蛋emoji */
+.zt-egg-emoji {
+    font-size: 28px;
+    flex-shrink: 0;
+    animation: zt-egg-bounce 0.5s ease-out;
+}
+
+@keyframes zt-egg-bounce {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 彩蛋文字 */
+.zt-egg-text {
+    color: #333;
+    line-height: 1.4;
+}
+
+/* ========================================
+   特殊彩蛋（中央显示）
+   ======================================== */
+
+.zt-egg-center {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) scale(0.9);
+    margin: 0 !important;
+    padding: 20px 30px;
+    font-size: 18px;
+}
+
+.zt-egg-center.show {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* ========================================
+   特殊彩蛋（更大效果）
+   ======================================== */
+
+.zt-egg-special {
+    background: linear-gradient(135deg, #FFF5E6 0%, #FFE6CC 100%);
+    border-width: 3px;
+    padding: 15px 25px;
+    animation: zt-egg-special-pulse 0.6s ease-out;
+}
+
+@keyframes zt-egg-special-pulse {
+    0% {
+        transform: translateY(-10px) scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0) scale(1.05);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.zt-egg-special .zt-egg-emoji {
+    font-size: 36px;
+}
+
+.zt-egg-special .zt-egg-text {
+    font-weight: 600;
+    color: #EE5A24;
+}
+
+/* ========================================
+   角色色彩主题
+   ======================================== */
+
+/* 朱迪 - 金橙色 */
+.zt-egg-bubble[style*="#FF9F43"] {
+    background: linear-gradient(135deg, #FFF5E6 0%, #FFE6CC 100%);
+}
+
+/* 尼克 - 橙红色 */
+.zt-egg-bubble[style*="#EE5A24"] {
+    background: linear-gradient(135deg, #FFE6E6 0%, #FFCCCC 100%);
+}
+
+/* 闪电 - 翠绿色 */
+.zt-egg-bubble[style*="#10AC84"] {
+    background: linear-gradient(135deg, #E6FFF3 0%, #CCFFEB 100%);
+}
+
+/* 旁克 - 紫色 */
+.zt-egg-bubble[style*="#5F27CD"] {
+    background: linear-gradient(135deg, #F3E6FF 0%, #E6CCFF 100%);
+}
+
+/* 牛局长 - 粉红色 */
+.zt-egg-bubble[style*="#FF6B6B"] {
+    background: linear-gradient(135deg, #FFE6F3 0%, #FFCCD9 100%);
+}
+
+/* ========================================
+   可点击元素提示（可选）
+   ======================================== */
+
+.zt-egg-trigger {
+    position: relative;
+}
+
+.zt-egg-trigger::after {
+    content: '🥚';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.zt-egg-trigger:hover::after {
+    opacity: 0.5;
+}
+
+/* ========================================
+   响应式设计
+   ======================================== */
+
+@media (max-width: 768px) {
+    .zt-egg-bubble {
+        font-size: 14px;
+        padding: 10px 14px;
+        max-width: 280px;
+    }
+
+    .zt-egg-emoji {
+        font-size: 24px;
+    }
+
+    .zt-egg-center {
+        font-size: 16px;
+        padding: 15px 20px;
+    }
+
+    .zt-egg-special {
+        font-size: 16px;
+        padding: 12px 18px;
+    }
+
+    .zt-egg-special .zt-egg-emoji {
+        font-size: 28px;
+    }
+}
+
+/* ========================================
+   性能优化
+   ======================================== */
+
+/* 减少动画在低性能设备上的影响 */
+@media (prefers-reduced-motion: reduce) {
+    .zt-egg-bubble,
+    .zt-egg-emoji {
+        animation: none !important;
+        transition: opacity 0.2s ease;
+    }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+    .zt-egg-bubble {
+        background: #2d3436;
+        color: #dfe6e9;
+    }
+
+    .zt-egg-text {
+        color: #dfe6e9;
+    }
+
+    /* 保持角色色彩主题 */
+    .zt-egg-bubble[style*="#FF9F43"] {
+        background: linear-gradient(135deg, #3d3436 0%, #4a3d36 100%);
+    }
+
+    .zt-egg-bubble[style*="#EE5A24"] {
+        background: linear-gradient(135deg, #3d3636 0%, #4a3c3c 100%);
+    }
+}
+
+/* ========================================
+   触发元素高亮（调试模式，可选）
+   ======================================== */
+
+/* 取消注释以启用触发元素高亮 */
+/*
+.zt-egg-trigger {
+    outline: 2px dashed rgba(255, 159, 67, 0.3);
+    outline-offset: 2px;
+}
+
+.zt-egg-trigger:hover {
+    outline-color: rgba(255, 159, 67, 0.6);
+    cursor: pointer;
+}
+*/

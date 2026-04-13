@@ -1,0 +1,563 @@
+/**
+ * 疯狂动物城博客系统 - UI组件样式
+ * Zootopia Blog System - UI Components Styles
+ *
+ * 版本: v3.5.0
+ * 优化轮次: 第19轮
+ * 最后更新: 2026-04-12
+ */
+
+/* ==================== 通知组件 ==================== */
+.zt-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 300px;
+  max-width: 500px;
+  padding: 15px 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  animation: zt-slideInRight 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 10000;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.zt-notification--hide {
+  animation: zt-slideOutRight 0.3s ease forwards;
+}
+
+.zt-notification--success {
+  border-left: 4px solid #26DE81;
+}
+
+.zt-notification--error {
+  border-left: 4px solid #EE5A24;
+}
+
+.zt-notification--warning {
+  border-left: 4px solid #F8B739;
+}
+
+.zt-notification--info {
+  border-left: 4px solid #3498DB;
+}
+
+.zt-notification__icon {
+  font-size: 24px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.zt-notification__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.zt-notification__message {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2C3A47;
+  line-height: 1.4;
+}
+
+.zt-notification__details {
+  font-size: 13px;
+  color: #6C757D;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.zt-notification__close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #6C757D;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.zt-notification__close:hover {
+  color: #2C3A47;
+}
+
+/* ==================== 对话框 ==================== */
+.zt-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: zt-fadeIn 0.2s ease;
+}
+
+.zt-dialog {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: zt-scaleIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.zt-dialog__header {
+  margin-bottom: 20px;
+}
+
+.zt-dialog__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #2C3A47;
+  font-family: 'Fredoka One', sans-serif;
+}
+
+.zt-dialog__body {
+  margin-bottom: 24px;
+}
+
+.zt-dialog__message {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #6C757D;
+}
+
+.zt-dialog__footer {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+/* ==================== 按钮 ==================== */
+.zt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.zt-btn:focus {
+  outline: 2px solid rgba(255, 159, 67, 0.5);
+  outline-offset: 2px;
+}
+
+.zt-btn--primary {
+  background: linear-gradient(135deg, #FF9F43 0%, #F8B739 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.zt-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(255, 159, 67, 0.3);
+}
+
+.zt-btn--outline {
+  background: white;
+  color: #6C757D;
+  border-color: #E9ECEF;
+}
+
+.zt-btn--outline:hover {
+  border-color: #ADB5BD;
+  background: #F8F9FA;
+}
+
+/* ==================== 加载指示器 ==================== */
+.zt-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  animation: zt-fadeIn 0.2s ease;
+}
+
+.zt-loading-overlay--hide {
+  animation: zt-fadeOut 0.3s ease forwards;
+}
+
+.zt-loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.zt-loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid #F8F9FA;
+  border-top-color: #FF9F43;
+  border-radius: 50%;
+  animation: zt-spin 0.8s linear infinite;
+}
+
+.zt-loading-message {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2C3A47;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* ==================== 进度条 ==================== */
+.zt-progress-container {
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 9999;
+  font-family: 'Nunito', sans-serif;
+  animation: zt-slideInDown 0.3s ease;
+}
+
+.zt-progress-container--top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.zt-progress-container--hide {
+  animation: zt-slideOutUp 0.3s ease forwards;
+}
+
+.zt-progress-bar-bg {
+  height: 8px;
+  background: #E9ECEF;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.zt-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF9F43 0%, #F8B739 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.zt-progress-text {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #FF9F43;
+}
+
+.zt-progress-message {
+  text-align: center;
+  font-size: 13px;
+  color: #6C757D;
+  margin-top: 4px;
+}
+
+/* ==================== 提示框 ==================== */
+.zt-tooltip {
+  position: fixed;
+  padding: 8px 12px;
+  background: #2C3A47;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  font-family: 'Nunito', sans-serif;
+}
+
+.zt-tooltip--show {
+  opacity: 1;
+}
+
+.zt-tooltip::after {
+  content: '';
+  position: absolute;
+  border: 6px solid transparent;
+}
+
+.zt-tooltip--top::after {
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top-color: #2C3A47;
+}
+
+.zt-tooltip--bottom::after {
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-color: #2C3A47;
+}
+
+.zt-tooltip--left::after {
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left-color: #2C3A47;
+}
+
+.zt-tooltip--right::after {
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-right-color: #2C3A47;
+}
+
+/* ==================== 模态框 ==================== */
+.zt-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: zt-fadeIn 0.2s ease;
+  padding: 20px;
+}
+
+.zt-modal {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  max-height: 90vh;
+  overflow: auto;
+  animation: zt-scaleIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  font-family: 'Nunito', sans-serif;
+}
+
+.zt-modal--small {
+  max-width: 400px;
+  width: 100%;
+}
+
+.zt-modal--medium {
+  max-width: 600px;
+  width: 100%;
+}
+
+.zt-modal--large {
+  max-width: 900px;
+  width: 100%;
+}
+
+.zt-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #E9ECEF;
+}
+
+.zt-modal__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #2C3A47;
+  font-family: 'Fredoka One', sans-serif;
+}
+
+.zt-modal__close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #6C757D;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.zt-modal__close:hover {
+  color: #2C3A47;
+}
+
+.zt-modal__body {
+  padding: 24px;
+}
+
+/* ==================== 动画 ==================== */
+@keyframes zt-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zt-fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes zt-slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zt-slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes zt-slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zt-slideOutUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes zt-scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zt-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==================== 响应式设计 ==================== */
+@media (max-width: 768px) {
+  .zt-notification {
+    left: 20px;
+    right: 20px;
+    min-width: auto;
+    max-width: none;
+  }
+
+  .zt-dialog {
+    margin: 20px;
+  }
+
+  .zt-modal {
+    margin: 10px;
+  }
+
+  .zt-modal__body {
+    padding: 16px;
+  }
+}
+
+/* ==================== 暗色模式支持 ==================== */
+@media (prefers-color-scheme: dark) {
+  .zt-notification {
+    background: #2C3A47;
+  }
+
+  .zt-notification__message {
+    color: #F8F9FA;
+  }
+
+  .zt-notification__details {
+    color: #ADB5BD;
+  }
+
+  .zt-dialog {
+    background: #2C3A47;
+  }
+
+  .zt-dialog__title {
+    color: #F8F9FA;
+  }
+
+  .zt-dialog__message {
+    color: #ADB5BD;
+  }
+
+  .zt-loading-overlay {
+    background: rgba(44, 58, 71, 0.95);
+  }
+
+  .zt-loading-message {
+    color: #F8F9FA;
+  }
+
+  .zt-modal {
+    background: #2C3A47;
+  }
+
+  .zt-modal__header {
+    border-bottom-color: #374151;
+  }
+
+  .zt-modal__title {
+    color: #F8F9FA;
+  }
+}

@@ -1,0 +1,302 @@
+/**
+ * 疯狂动物城主题 - 头部横幅增强样式
+ * Zootopia Theme - Header Banner Enhancement
+ */
+
+/* ========================================
+   头部横幅动画效果
+   ======================================== */
+
+#page-header {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 横幅背景动画 */
+#page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 159, 67, 0.1),
+    rgba(10, 189, 227, 0.1),
+    rgba(16, 172, 132, 0.1),
+    rgba(95, 39, 205, 0.1)
+  );
+  background-size: 400% 400%;
+  animation: headerGradient 15s ease infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes headerGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 横幅图片容器 */
+#page-header .is-page-header {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+#page-header:hover .is-page-header {
+  transform: scale(1.02);
+}
+
+/* ========================================
+   首页头部特殊样式
+   ======================================== */
+
+body[data-type="index"] #page-header {
+  min-height: 600px;
+}
+
+/* 首页欢迎文字 */
+.index-header-intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  color: white;
+  animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.index-header-intro h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  from {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5),
+                 0 0 20px rgba(255, 159, 67, 0.5);
+  }
+  to {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5),
+                 0 0 30px rgba(10, 189, 227, 0.8);
+  }
+}
+
+.index-header-intro p {
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ========================================
+   页面标题样式增强
+   ======================================== */
+
+#page-title {
+  position: relative;
+  z-index: 10;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#page-title h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  animation: slideInDown 0.6s ease;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#page-title p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 15px;
+  animation: slideInUp 0.6s ease 0.2s backwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   面包屑导航增强
+   ======================================== */
+
+.breadcrumb {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 159, 67, 0.2),
+    rgba(10, 189, 227, 0.2)
+  );
+  border-radius: 20px;
+  padding: 10px 20px;
+  backdrop-filter: blur(10px);
+}
+
+.breadcrumb a {
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: #FFD700;
+  transform: scale(1.1);
+}
+
+/* ========================================
+   头部装饰元素
+   ======================================== */
+
+.header-decoration {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.header-decoration-star {
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* ========================================
+   各页面专用头部样式
+   ======================================== */
+
+/* 归档页面 */
+body[data-type="archive"] #page-title::before {
+  content: '📚';
+  display: block;
+  font-size: 4rem;
+  margin-bottom: 10px;
+  animation: bounce 1s ease;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* 分类页面 */
+body[data-type="categories"] #page-title::before {
+  content: '📂';
+  display: block;
+  font-size: 4rem;
+  margin-bottom: 10px;
+  animation: swing 1s ease;
+}
+
+@keyframes swing {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-15deg); }
+  75% { transform: rotate(15deg); }
+}
+
+/* 标签页面 */
+body[data-type="tags"] #page-title::before {
+  content: '🏷️';
+  display: block;
+  font-size: 4rem;
+  margin-bottom: 10px;
+  animation: spin 1s ease;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   响应式调整
+   ======================================== */
+
+@media (max-width: 768px) {
+  .index-header-intro h1 {
+    font-size: 2rem;
+  }
+
+  .index-header-intro p {
+    font-size: 1rem;
+  }
+
+  #page-title h1 {
+    font-size: 1.8rem;
+  }
+
+  #page-title p {
+    font-size: 1rem;
+  }
+}
+
+/* ========================================
+   滚动视差效果
+   ======================================== */
+
+.parallax-header {
+  transition: transform 0.1s ease-out;
+}
+
+/* 添加滚动时的视差效果 */
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('#page-header');
+  if (header) {
+    const scrolled = window.pageYOffset;
+    header.style.transform = `translateY(${scrolled * 0.3}px)`;
+  }
+});

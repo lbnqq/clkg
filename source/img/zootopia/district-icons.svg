@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <style>
+      .district-icon { font-size: 40px; text-anchor: middle; }
+      .district-label { font-size: 14px; font-weight: bold; text-anchor: middle; fill: #333; }
+      .icon-bg { filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); }
+    </style>
+  </defs>
+
+  <!-- Sahara Square -->
+  <g transform="translate(50, 50)">
+    <circle cx="0" cy="0" r="35" fill="#FF9F43" class="icon-bg"/>
+    <text x="0" y="10" class="district-icon">🏜️</text>
+    <text x="0" y="55" class="district-label">Sahara Square</text>
+  </g>
+
+  <!-- Tundratown -->
+  <g transform="translate(150, 50)">
+    <circle cx="0" cy="0" r="35" fill="#0ABDE3" class="icon-bg"/>
+    <text x="0" y="10" class="district-icon">❄️</text>
+    <text x="0" y="55" class="district-label">Tundratown</text>
+  </g>
+
+  <!-- Rainforest District -->
+  <g transform="translate(250, 50)">
+    <circle cx="0" cy="0" r="35" fill="#10AC84" class="icon-bg"/>
+    <text x="0" y="10" class="district-icon">🌴</text>
+    <text x="0" y="55" class="district-label">Rainforest</text>
+  </g>
+
+  <!-- Downtown -->
+  <g transform="translate(350, 50)">
+    <circle cx="0" cy="0" r="35" fill="#5F27CD" class="icon-bg"/>
+    <text x="0" y="10" class="district-icon">🏙️</text>
+    <text x="0" y="55" class="district-label">Downtown</text>
+  </g>
+
+  <!-- Bunnyburrow -->
+  <g transform="translate(100, 140)">
+    <circle cx="0" cy="0" r="35" fill="#26DE81" class="icon-bg"/>
+    <text x="0" y="10" class="district-icon">🥕</text>
+    <text x="0" y="55" class="district-label">Bunnyburrow</text>
+  </g>
+
+  <!-- Little Rodentia -->
+  <g transform="translate(200, 140)">
+    <circle cx="0" cy="0" r="35" fill="#FECA57" class="icon-bg"/>
+    <text x="0" y="10" class="district-icon">🐭</text>
+    <text x="0" y="55" class="district-label">Little Rodentia</text>
+  </g>
+
+  <!-- Meadowlands -->
+  <g transform="translate(300, 140)">
+    <circle cx="0" cy="0" r="35" fill="#A8E6CF" class="icon-bg"/>
+    <text x="0" y="10" class="district-icon">🌾</text>
+    <text x="0" y="55" class="district-label">Meadowlands</text>
+  </g>
+</svg>

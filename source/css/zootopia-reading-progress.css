@@ -1,0 +1,188 @@
+/**
+ * 疯狂动物城 - 阅读进度指示器样式
+ * Zootopia Reading Progress Indicator Styles
+ * Version: 1.0.0
+ */
+
+/* ========================================
+   顶部进度条样式
+   ======================================== */
+.zootopia-reading-progress-top {
+  position: fixed;
+  top: var(--zt-offset-top, 0);
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--zt-primary, #FF9F43), var(--zt-secondary, #0ABDE3));
+  z-index: 9999;
+  transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  box-shadow: 0 2px 12px rgba(255, 159, 67, 0.4);
+  border-radius: 0 2px 2px 0;
+}
+
+/* 发光效果 */
+.zootopia-reading-progress-top::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255, 159, 67, 0.6), transparent);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.zootopia-reading-progress-top:hover::after {
+  opacity: 1;
+}
+
+/* ========================================
+   侧边进度条样式
+   ======================================== */
+.zootopia-reading-progress-sidebar {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.zootopia-reading-progress-sidebar:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(255, 159, 67, 0.2);
+}
+
+.zootopia-reading-progress-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(180deg, var(--zt-primary, #FF9F43), var(--zt-secondary, #0ABDE3));
+  border-radius: 2px;
+  transition: height 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 12px rgba(255, 159, 67, 0.5);
+}
+
+/* 侧边进度条交互 */
+.zootopia-reading-progress-sidebar:hover .zootopia-reading-progress-fill {
+  box-shadow: 0 0 16px rgba(255, 159, 67, 0.7);
+}
+
+/* ========================================
+   动画效果
+   ======================================== */
+@keyframes progressPulse {
+  0%, 100% {
+    box-shadow: 0 2px 12px rgba(255, 159, 67, 0.4);
+  }
+  50% {
+    box-shadow: 0 2px 20px rgba(255, 159, 67, 0.7);
+  }
+}
+
+.zootopia-reading-progress-top {
+  animation: progressPulse 2s infinite ease-in-out;
+}
+
+/* ========================================
+   响应式设计
+   ======================================== */
+@media (max-width: 768px) {
+  .zootopia-reading-progress-sidebar {
+    right: 10px;
+    height: 150px;
+  }
+
+  .zootopia-reading-progress-top {
+    height: 3px;
+    top: max(var(--zt-offset-top, 0), env(safe-area-inset-top, 0px));
+  }
+}
+
+@media (max-width: 480px) {
+  .zootopia-reading-progress-sidebar {
+    display: none; /* 移动端隐藏侧边进度条 */
+  }
+
+  .zootopia-reading-progress-top {
+    height: 3px;
+  }
+}
+
+/* ========================================
+   暗色模式支持
+   ======================================== */
+@media (prefers-color-scheme: dark) {
+  .zootopia-reading-progress-sidebar {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .zootopia-reading-progress-sidebar:hover {
+    box-shadow: 0 6px 16px rgba(255, 159, 67, 0.25);
+  }
+
+  .zootopia-reading-progress-top {
+    box-shadow: 0 2px 12px rgba(255, 159, 67, 0.3);
+  }
+}
+
+/* ========================================
+   自定义主题色支持
+   ======================================== */
+.zootopia-reading-progress-top {
+  --zt-primary: #FF9F43;
+  --zt-secondary: #0ABDE3;
+}
+
+/* ========================================
+   滚动提示动画
+   ======================================== */
+@keyframes scrollHint {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+.zootopia-reading-progress-top.scroll-hint {
+  animation: progressPulse 2s infinite ease-in-out,
+             scrollHint 1s infinite ease-in-out;
+}
+
+/* ========================================
+   打印优化
+   ======================================== */
+@media print {
+  .zootopia-reading-progress-top,
+  .zootopia-reading-progress-sidebar {
+    display: none !important;
+  }
+}
+
+/* ========================================
+   辅助功能
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .zootopia-reading-progress-top,
+  .zootopia-reading-progress-fill {
+    transition: none !important;
+    animation: none !important;
+  }
+}

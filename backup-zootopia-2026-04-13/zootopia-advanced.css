@@ -1,0 +1,405 @@
+/**
+ * 疯狂动物城主题 - 增强版样式
+ * Enhanced Zootopia Theme Styles
+ */
+
+/* ========================================
+   疯狂动物城报纸样式
+   ======================================== */
+
+.zootopia-newspaper {
+  position: relative;
+  background: linear-gradient(135deg,
+    rgba(255, 159, 67, 0.05),
+    rgba(10, 189, 227, 0.05)
+  );
+  border: 3px solid #FF9F43;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 30px 0;
+  font-family: 'Times New Roman', serif;
+}
+
+.zootopia-newspaper::before {
+  content: '📰 ZOOTOPIA DAILY NEWS';
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  color: #FF9F43;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.newspaper-headline {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #FF9F43;
+}
+
+.newspaper-date {
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.newspaper-content {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+  column-count: 2;
+  column-gap: 30px;
+}
+
+/* ========================================
+   疯狂动物城证书样式
+   ======================================== */
+
+.zootopia-certificate {
+  background: linear-gradient(135deg,
+    rgba(255, 215, 0, 0.1),
+    rgba(255, 215, 0, 0.05)
+  );
+  border: 5px double #FFD700;
+  border-radius: 20px;
+  padding: 40px;
+  margin: 30px auto;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.zootopia-certificate::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 2px solid #FFD700;
+  border-radius: 15px;
+  pointer-events: none;
+}
+
+.certificate-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #B8860B;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.certificate-recipient {
+  font-size: 18px;
+  color: #333;
+  margin: 20px 0;
+}
+
+.certificate-badge {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+}
+
+.certificate-footer {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ========================================
+   疯狂动物城地图标记
+   ======================================== */
+
+.zootopia-map-marker {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.map-marker-pin {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #FF9F43, #EE5A24);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  position: relative;
+  box-shadow: 0 3px 10px rgba(255, 159, 67, 0.4);
+}
+
+.map-marker-pin::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.map-marker-label {
+  background: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   疯狂动物城进度条
+   ======================================== */
+
+.zootopia-progress {
+  margin: 20px 0;
+}
+
+.zootopia-progress-bar {
+  height: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.zootopia-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF9F43, #0ABDE3);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: width 0.5s ease;
+}
+
+.zootopia-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: progressShine 2s linear infinite;
+}
+
+@keyframes progressShine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.zootopia-progress-text {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #FF9F43;
+}
+
+/* ========================================
+   疯狂动物城卡片翻转效果
+   ======================================== */
+
+.zootopia-flip-card {
+  perspective: 1000px;
+  width: 300px;
+  height: 200px;
+  margin: 20px auto;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flip-card-inner:hover {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.flip-card-front {
+  background: linear-gradient(135deg, #FF9F43, #EE5A24);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-back {
+  background: linear-gradient(135deg, #0ABDE3, #48DBFB);
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.flip-card-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.flip-card-desc {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ========================================
+   疯狂动物城标签云
+   ======================================== */
+
+.zootopia-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.zootopia-tag {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.zootopia-tag:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tag-sahara {
+  background: linear-gradient(135deg, #FF9F43, #EE5A24);
+  color: white;
+}
+
+.tag-tundra {
+  background: linear-gradient(135deg, #0ABDE3, #48DBFB);
+  color: white;
+}
+
+.tag-rainforest {
+  background: linear-grad(135deg, #10AC84, #1DD1A1);
+  color: white;
+}
+
+.tag-downtown {
+  background: linear-gradient(135deg, #5F27CD, #341F97);
+  color: white;
+}
+
+.tag-bunnyburrow {
+  background: linear-gradient(135deg, #26DE81, #20BF6B);
+  color: white;
+}
+
+/* ========================================
+   疯狂动物城时间轴卡片
+   ======================================== */
+
+.zootopia-timeline-card {
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 30px 0;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #FF9F43;
+  transition: all 0.3s ease;
+}
+
+.zootopia-timeline-card:hover {
+  transform: translateX(10px);
+  box-shadow: 0 8px 25px rgba(255, 159, 67, 0.2);
+}
+
+.timeline-card-date {
+  font-size: 12px;
+  color: #FF9F43;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.timeline-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.timeline-card-content {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ========================================
+   响应式调整
+   ======================================== */
+
+@media (max-width: 768px) {
+  .newspaper-content {
+    column-count: 1;
+  }
+
+  .zootopia-flip-card {
+    width: 250px;
+    height: 180px;
+  }
+
+  .zootopia-tag-cloud {
+    justify-content: center;
+  }
+}

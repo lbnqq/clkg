@@ -1,0 +1,475 @@
+/* ========================================
+   疯狂动物城 Zootopia 额外装饰元素
+   Extra Zootopia Decorative Elements
+   ======================================== */
+
+/* ========================================
+   Pawpsicles 冰棍装饰
+   ======================================== */
+
+.pawpsicle-decoration {
+  position: relative;
+  display: inline-block;
+}
+
+.pawpsicle-decoration::before {
+  content: '🍦';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 24px;
+  animation: pawpsicleMelt 3s ease-in-out infinite;
+}
+
+@keyframes pawpsicleMelt {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(5px) rotate(5deg);
+    opacity: 0.8;
+  }
+}
+
+/* ========================================
+   Judy 罚单样式
+   ======================================== */
+
+.judy-ticket {
+  position: relative;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border: 3px dashed #FF8C00;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+}
+
+.judy-ticket::before {
+  content: '🐰 ZPD PARKING VIOLATION';
+  display: block;
+  font-weight: bold;
+  color: #8B4513;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.judy-ticket::after {
+  content: 'Officer: J. Hopps #814';
+  display: block;
+  font-size: 12px;
+  color: #8B4513;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* ========================================
+   动物城天际线背景
+   ======================================== */
+
+.zootopia-skyline {
+  position: relative;
+  overflow: hidden;
+}
+
+.zootopia-skyline::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background:
+    /* 建筑轮廓 */
+    linear-gradient(to top,
+      rgba(30, 58, 95, 0.3) 0%,
+      transparent 100%
+    ),
+    /* 城市剪影 */
+    repeating-linear-gradient(90deg,
+      transparent 0px,
+      transparent 40px,
+      rgba(255, 159, 67, 0.1) 40px,
+      rgba(255, 159, 67, 0.1) 42px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 天际线动画 */
+@keyframes skylineMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 84px 0;
+  }
+}
+
+/* ========================================
+   火车站装饰
+   ======================================== */
+
+.train-station-banner {
+  background: linear-gradient(135deg,
+    #1E3A5F 0%,
+    #2E5C8A 50%,
+    #1E3A5F 100%
+  );
+  border: 3px solid #FFD700;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 30px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.train-station-banner::before {
+  content: '🚂 ZOOTOPIA CENTRAL STATION';
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFD700;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.train-station-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent,
+    #FFD700,
+    transparent
+  );
+  animation: stationLight 3s linear infinite;
+}
+
+@keyframes stationLight {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* ========================================
+   城市徽章样式
+   ======================================== */
+
+.city-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  padding: 10px 20px;
+  border-radius: 25px;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+  font-weight: bold;
+  color: #1E3A5F;
+}
+
+.city-badge::before {
+  content: '🏛️';
+  font-size: 20px;
+}
+
+/* ========================================
+   角色对话气泡
+   ======================================== */
+
+.character-bubble {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  padding: 15px 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #FF9F43;
+}
+
+.character-bubble.judy {
+  border-color: #9C85C6;
+  background: linear-gradient(135deg, #F3E5F5, #FFFFFF);
+}
+
+.character-bubble.nick {
+  border-color: #FF6B35;
+  background: linear-gradient(135deg, #FFF3E0, #FFFFFF);
+}
+
+.character-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid #FF9F43;
+}
+
+.character-bubble.judy::before {
+  border-top-color: #9C85C6;
+}
+
+.character-bubble.nick::before {
+  border-top-color: #FF6B35;
+}
+
+.character-bubble::after {
+  content: attr(data-character);
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  background: #FF9F43;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.character-bubble.judy::after {
+  background: #9C85C6;
+  content: '🐰 Judy Hopps';
+}
+
+.character-bubble.nick::after {
+  background: #FF6B35;
+  content: '🦊 Nick Wilde';
+}
+
+/* ========================================
+   Donut 时间标记
+   ======================================== */
+
+.donut-time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #FF6B6B, #EE5A24);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.4);
+}
+
+.donut-time-badge::before {
+  content: '🍩';
+  font-size: 18px;
+}
+
+/* ========================================
+   城市地图装饰
+   ======================================== */
+
+.city-map-decoration {
+  position: relative;
+  background: linear-gradient(135deg,
+    rgba(255, 159, 67, 0.1) 0%,
+    rgba(10, 189, 227, 0.1) 100%
+  );
+  border: 2px dashed #FF9F43;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 20px 0;
+}
+
+.city-map-decoration::before {
+  content: '🗺️ Zootopia City Map';
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #FF9F43;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* ========================================
+   尾巴摇摆动画
+   ======================================== */
+
+.tail-wag {
+  display: inline-block;
+  animation: tailWag 0.5s ease-in-out infinite;
+}
+
+@keyframes tailWag {
+  0%, 100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+/* ========================================
+   兔子跳跃动画
+   ======================================== */
+
+.bunny-hop {
+  display: inline-block;
+  animation: bunnyHop 0.8s ease-in-out infinite;
+}
+
+@keyframes bunnyHop {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ========================================
+   狐狸狡黠眨眼
+   ======================================== */
+
+.fox-wink {
+  display: inline-block;
+  animation: foxWink 2s ease-in-out infinite;
+}
+
+@keyframes foxWink {
+  0%, 45%, 55%, 100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.9);
+  }
+}
+
+/* ========================================
+   城市灯光效果
+   ======================================== */
+
+.city-lights {
+  position: relative;
+}
+
+.city-lights::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 107, 53, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(10, 189, 227, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+  animation: cityLightsGlow 5s ease-in-out infinite;
+}
+
+@keyframes cityLightsGlow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   爪印装饰
+   ======================================== */
+
+.paw-print-decoration {
+  position: relative;
+}
+
+.paw-print-decoration::after {
+  content: '🐾';
+  position: absolute;
+  bottom: -15px;
+  right: -15px;
+  font-size: 24px;
+  opacity: 0.6;
+  animation: pawPrintFade 3s ease-in-out infinite;
+}
+
+@keyframes pawPrintFade {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* ========================================
+   徽章收集展示
+   ======================================== */
+
+.badge-collection {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: linear-gradient(135deg,
+    rgba(255, 215, 0, 0.1),
+    rgba(255, 165, 0, 0.1)
+  );
+  border-radius: 15px;
+  border: 2px solid #FFD700;
+}
+
+.badge-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.badge-item:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+}
+
+.badge-item-icon {
+  font-size: 32px;
+}
+
+.badge-item-name {
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+/* ========================================
+   响应式调整
+   ======================================== */
+
+@media (max-width: 768px) {
+  .badge-collection {
+    justify-content: center;
+  }
+
+  .character-bubble::after {
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+
+  .train-station-banner::before {
+    font-size: 14px;
+  }
+}

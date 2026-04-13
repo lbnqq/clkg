@@ -1,0 +1,343 @@
+/**
+ * 疯狂动物城 - 媒体优化样式
+ * Zootopia Media Optimizer Styles
+ */
+
+/* ==================== 懒加载状态 ==================== */
+.zt-loading {
+  opacity: 0.6;
+  filter: blur(5px);
+  transition: opacity 300ms ease-out, filter 300ms ease-out;
+}
+
+.zt-loaded {
+  opacity: 1;
+  filter: none;
+}
+
+.zt-error {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+/* ==================== 加载指示器 ==================== */
+img.zt-loading::before,
+video.zt-loading::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 3px solid var(--zt-border, rgba(0, 0, 0, 0.1));
+  border-top-color: var(--zt-primary, #FF9F43);
+  border-radius: 50%;
+  animation: zt-media-spin 1s linear infinite;
+}
+
+@keyframes zt-media-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==================== 图片容器 ==================== */
+.zt-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.zt-image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 300ms ease-out;
+}
+
+.zt-image-wrapper:hover img {
+  transform: scale(1.02);
+}
+
+/* ==================== 视频容器 ==================== */
+.zt-video-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.zt-video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==================== 视频加载覆盖层 ==================== */
+.zt-video-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--zt-surface, #f8f9fa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.zt-video-loading::after {
+  content: '🎬';
+  font-size: 48px;
+  animation: zt-media-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes zt-media-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* ==================== 图片优化建议面板 ==================== */
+.zt-optimization-hints {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  max-width: 300px;
+  padding: 16px;
+  background: var(--zt-background, #ffffff);
+  border: 2px solid var(--zt-warning, #F8B739);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--zt-shadow, rgba(0, 0, 0, 0.1));
+  z-index: 997;
+  font-size: 13px;
+}
+
+.zt-optimization-hints h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: var(--zt-warning, #F8B739);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.zt-optimization-hints ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.zt-optimization-hints li {
+  margin-bottom: 6px;
+  color: var(--zt-text, #1a1a2e);
+}
+
+.zt-optimization-hints .zt-close-hints {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: var(--zt-textSecondary, rgba(0, 0, 0, 0.6));
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 150ms ease-out;
+}
+
+.zt-optimization-hints .zt-close-hints:hover {
+  background: var(--zt-border, rgba(0, 0, 0, 0.1));
+  color: var(--zt-text, #1a1a2e);
+}
+
+/* ==================== 性能报告面板 ==================== */
+.zt-performance-report {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  padding: 20px;
+  background: var(--zt-background, #ffffff);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.zt-performance-report h3 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  color: var(--zt-text, #1a1a2e);
+}
+
+.zt-metric-group {
+  margin-bottom: 16px;
+  padding: 12px;
+  background: var(--zt-surface, #f8f9fa);
+  border-radius: 8px;
+}
+
+.zt-metric-group h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: var(--zt-text, #1a1a2e);
+}
+
+.zt-metric-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 13px;
+  border-bottom: 1px solid var(--zt-border, rgba(0, 0, 0, 0.05));
+}
+
+.zt-metric-item:last-child {
+  border-bottom: none;
+}
+
+.zt-metric-label {
+  color: var(--zt-textSecondary, rgba(0, 0, 0, 0.6));
+}
+
+.zt-metric-value {
+  font-weight: 600;
+  color: var(--zt-primary, #FF9F43);
+}
+
+/* ==================== 响应式图片 ==================== */
+.zt-responsive-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==================== 图片占位符 ==================== */
+.zt-image-placeholder {
+  background: linear-gradient(
+    90deg,
+    var(--zt-surface, #f8f9fa) 0%,
+    var(--zt-border, rgba(0, 0, 0, 0.05)) 50%,
+    var(--zt-surface, #f8f9fa) 100%
+  );
+  background-size: 200% 100%;
+  animation: zt-placeholder-shimmer 1.5s infinite;
+}
+
+@keyframes zt-placeholder-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ==================== 懒加载占位符 ==================== */
+img[loading="lazy"] {
+  background: var(--zt-surface, #f8f9fa);
+}
+
+/* ==================== 视频占位符 ==================== */
+video[data-poster] {
+  background: var(--zt-surface, #f8f9fa);
+}
+
+video[data-poster]:not([poster]) {
+  min-height: 200px;
+}
+
+/* ==================== 响应式设计 ==================== */
+@media (max-width: 768px) {
+  .zt-optimization-hints {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    max-width: none;
+  }
+
+  .zt-performance-report {
+    width: 95%;
+    max-height: 90vh;
+  }
+}
+
+/* ==================== 暗色主题 ==================== */
+[data-theme="dark"] .zt-optimization-hints,
+[data-theme="dark"] .zt-performance-report {
+  background: var(--zt-background, #1a1a2e);
+}
+
+[data-theme="dark"] .zt-metric-group {
+  background: var(--zt-surface, #16213e);
+}
+
+[data-theme="dark"] .zt-video-loading {
+  background: var(--zt-surface, #16213e);
+}
+
+[data-theme="dark"] .zt-optimization-hints h4,
+[data-theme="dark"] .zt-performance-report h3,
+[data-theme="dark"] .zt-metric-group h4,
+[data-theme="dark"] .zt-optimization-hints li {
+  color: var(--zt-text, #ffffff);
+}
+
+/* ==================== 减少动画偏好 ==================== */
+@media (prefers-reduced-motion: reduce) {
+  .zt-loading,
+  .zt-image-wrapper img,
+  video,
+  .zt-image-placeholder {
+    transition: none;
+    animation: none;
+  }
+
+  .zt-video-loading::after {
+    animation: none;
+  }
+
+  .zt-image-wrapper:hover img {
+    transform: none;
+  }
+}
+
+/* ==================== 打印样式 ==================== */
+@media print {
+  .zt-optimization-hints,
+  .zt-performance-report {
+    display: none;
+  }
+
+  .zt-loading {
+    opacity: 1;
+    filter: none;
+  }
+}
+
+/* ==================== 高对比度模式 ==================== */
+@media (prefers-contrast: high) {
+  .zt-loading {
+    filter: none;
+    opacity: 1;
+  }
+
+  .zt-error {
+    opacity: 1;
+    filter: none;
+    border: 2px solid currentColor;
+  }
+}

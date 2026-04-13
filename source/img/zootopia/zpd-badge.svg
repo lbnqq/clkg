@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="badgeGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="50%" style="stop-color:#FFA500"/>
+      <stop offset="100%" style="stop-color:#FFD700"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- 外圈六边形 -->
+  <polygon points="50,5 85,27 85,72 50,95 15,72 15,27"
+           fill="url(#badgeGold)" stroke="#B8860B" stroke-width="2" filter="url(#shadow)"/>
+
+  <!-- 内圈 -->
+  <polygon points="50,15 75,32 75,67 50,85 25,67 25,32"
+           fill="#1E3A5F" stroke="#FFD700" stroke-width="2"/>
+
+  <!-- ZPD 文字 -->
+  <text x="50" y="45" text-anchor="middle" fill="#FFD700"
+        font-size="10" font-weight="bold" font-family="Arial">ZPD</text>
+
+  <!-- 盾牌图标 -->
+  <path d="M 35 52 Q 50 78 65 52 Z" fill="#FFD700" stroke="#B8860B" stroke-width="1"/>
+  <circle cx="50" cy="60" r="4" fill="#1E3A5F" stroke="#FFD700" stroke-width="1"/>
+
+  <!-- 星星装饰 -->
+  <polygon points="50,25 52,30 57,30 53,33 55,38 50,35 45,38 47,33 43,30 48,30" fill="#FFD700"/>
+
+  <!-- 动物爪印装饰 -->
+  <circle cx="30" cy="50" r="2" fill="#FFD700" opacity="0.8"/>
+  <circle cx="70" cy="50" r="2" fill="#FFD700" opacity="0.8"/>
+  <circle cx="30" cy="70" r="2" fill="#FFD700" opacity="0.8"/>
+  <circle cx="70" cy="70" r="2" fill="#FFD700" opacity="0.8"/>
+</svg>
